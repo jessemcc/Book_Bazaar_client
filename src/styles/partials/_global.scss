@@ -1,0 +1,59 @@
+@use "./typography" as *;
+@use "./mixins" as *;
+@use "./variables" as *;
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: "Caslon";
+    font-size: 1.6rem;
+    margin: 0 auto;
+    color: $background-color-1;
+    position: relative;
+}
+
+// ALL FONT-STYLES ================================================
+
+h1 {
+    @include font-styles(2.8rem, 3.6rem, 600);
+    margin: 0;
+
+    @include tablet {
+        @include font-styles(3.2rem, 4rem, 600);
+    }
+}
+
+h2 {
+    @include font-styles(2rem, 2.8rem, 600);
+    margin: 0;
+
+    @include tablet {
+        @include font-styles(2.4rem, 3.2rem, 600);
+    }
+}
+
+h3 {
+    @include font-styles(1.3rem, 2rem, 600);
+    margin: 0;
+
+    @include tablet {
+        @include font-styles(1.4rem, 2.2rem, 600);
+    }
+}
+
+h4 {
+    @include font-styles(1.1rem, 1.6rem, 600);
+    margin: 0;
+
+    @include tablet {
+        @include font-styles(1.2rem, 1.8rem, 600);
+    }
+}
