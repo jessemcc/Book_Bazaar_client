@@ -21,8 +21,6 @@ const Featured = () => {
     return <p>Loading...</p>;
   }
 
-  console.log(featured);
-
   const selectFeatured = featured
     .sort((a, b) => 0.5 - Math.random())
     .splice(0, 3)

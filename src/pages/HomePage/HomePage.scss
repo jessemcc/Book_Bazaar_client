@@ -26,5 +26,17 @@
     &__featured-container {
         width: 100%;
         text-align: center;
+
+        @include tablet {
+            max-width: 102rem;
+            border-bottom: 1px solid $secondary-color-2;
+        }
+    }
+
+    &__featured-books {
+        @include tablet {
+            padding-top: 1.6rem;
+            @include flex(row, space-between, flex-start, nowrap);
+        }
     }
 }

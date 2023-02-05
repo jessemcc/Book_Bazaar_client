@@ -7,8 +7,11 @@ const HomePage = () => {
       <section className="home__container">
         <article className="home__featured-container">
           <h1 className="home__featured-title">FEATURED</h1>
-          <Featured />
+          <article className="home__featured-books">
+            <Featured />
+          </article>
         </article>
+        <article className="home__book-list"></article>
       </section>
     </section>
   );
