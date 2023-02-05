@@ -18,22 +18,22 @@ const PageHeader = () => {
           </Link>
           <article className="header__page-links">
             <Link to={<AuthorsPage />} className="header__link">
-              Authors
+              AUTHORS
             </Link>
             <Link to={<BooksPage />} className="header__link">
-              Books
+              BOOKS
             </Link>
           </article>
         </article>
         <article className="header__signup-container">
-          <Link to="#" classname="header__shopping-cart-link">
+          <Link to="#" className="header__shopping-cart-link">
             <HiShoppingCart />
           </Link>
           <Link to={<SignUpPage />} className="header__link">
-            Sign Up
+            SIGN UP
           </Link>
           <Link to={<LoginPage />} className="header__link">
-            Login
+            LOGIN
           </Link>
         </article>
       </section>

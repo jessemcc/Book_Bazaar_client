@@ -1,0 +1,8 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.featured-books {
+    padding: 1.6rem 0;
+    width: 100%;
+    border-bottom: 1px solid $secondary-color-2;
+}
