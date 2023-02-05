@@ -3,15 +3,21 @@
 
 .featured-books {
     padding: 1.6rem 0;
+    margin: 2rem 0;
     width: 100%;
-    border-bottom: 1px solid $secondary-color-2;
+    border: 1px solid $primary-color-1;
+    border-radius: 6px;
+    box-shadow: 0.5rem 0.5rem 0.75rem rgba(0, 0, 0, 0.2);
 
     @include tablet {
         width: 20rem;
-        border-bottom: none;
     }
 
     @include desktop {
         width: 30rem;
+    }
+
+    &__book-cover {
+        margin: 1rem 0;
     }
 }

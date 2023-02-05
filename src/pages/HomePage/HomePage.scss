@@ -34,6 +34,7 @@
     }
 
     &__featured-books {
+        @include flex(column, center, center, initial);
         @include tablet {
             padding-top: 1.6rem;
             @include flex(row, space-between, flex-start, nowrap);

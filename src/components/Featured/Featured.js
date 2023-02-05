@@ -1,5 +1,6 @@
 import "./Featured.scss";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 const Featured = () => {
@@ -26,7 +27,7 @@ const Featured = () => {
     .splice(0, 3)
     .map((book) => {
       return (
-        <article key={book.id} className="featured-books">
+        <Link to="#" key={book.id} className="featured-books">
           <h3 className="featured-books__featured-title">{book.book_name}</h3>
           <img
             src={book.image}
@@ -37,7 +38,7 @@ const Featured = () => {
             {`By: ${book.first_name} ${book.last_name}`}
           </h3>
           <h3 className="featured-books__featured-price">{book.price}</h3>
-        </article>
+        </Link>
       );
     });
 
