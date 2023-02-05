@@ -31,7 +31,7 @@
 
         @include tablet {
             @include flex(row, space-between, center, initial);
-            width: 30rem;
+            width: 32rem;
         }
     }
 
@@ -41,6 +41,7 @@
 
         @include tablet {
             justify-content: flex-start;
+            width: 14rem;
         }
     }
 
@@ -52,6 +53,10 @@
         @include flex(row, space-evenly, center, nowrap);
         width: 100%;
         padding: 2.4rem 0;
+
+        @include tablet {
+            width: 24rem;
+        }
     }
 
     &__signup-container {
@@ -60,7 +65,7 @@
 
         @include tablet {
             align-items: flex-start;
-            width: 15rem;
+            width: 19rem;
         }
     }
 }
