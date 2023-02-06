@@ -1,5 +1,6 @@
 import "./HomePage.scss";
 import Featured from "../../components/Featured/Featured";
+import BookList from "../../components/BookList/BookList";
 
 const HomePage = () => {
   return (
@@ -11,7 +12,15 @@ const HomePage = () => {
             <Featured />
           </article>
         </article>
-        <article className="home__book-list"></article>
+        <article className="home__book-list">
+          <article className="home__book-list-titles">
+            <h3 className="home__book-list-title">Title</h3>
+            <h3 className="home__book-list-title">Author</h3>
+            <h3 className="home__book-list-title">Genre</h3>
+            <h3 className="home__book-list-price">Price</h3>
+          </article>
+          <BookList />
+        </article>
       </section>
     </section>
   );

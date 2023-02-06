@@ -27,7 +27,7 @@ const Featured = () => {
     .splice(0, 3)
     .map((book) => {
       return (
-        <Link to="#" key={book.id} className="featured-books">
+        <Link to="/books/:bookid" key={book.id} className="featured-books">
           <h3 className="featured-books__featured-title">{book.book_name}</h3>
           <img
             src={book.image}

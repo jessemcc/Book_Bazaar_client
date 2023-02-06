@@ -14,10 +14,7 @@
     }
 
     &__container {
-        @include flex(column, center, center, nowrap);
-
         @include tablet {
-            @include flex(row, space-between, center, initial);
             max-width: 102rem;
             margin: 0 auto;
         }
@@ -29,15 +26,34 @@
 
         @include tablet {
             max-width: 102rem;
-            border-bottom: 1px solid $secondary-color-2;
         }
     }
 
     &__featured-books {
         @include flex(column, center, center, initial);
+
         @include tablet {
-            padding-top: 1.6rem;
             @include flex(row, space-between, flex-start, nowrap);
+            padding-top: 1.6rem;
+        }
+    }
+
+    &__book-list-titles {
+        display: none;
+
+        @include tablet {
+            @include flex(row, space-between, center, nowrap);
+            height: 4rem;
+            border-top: 2px solid $primary-color-2;
+            border-bottom: 2px solid $primary-color-2;
+            padding: 0 2.4rem;
+        }
+    }
+
+    &__book-list-title {
+        @include tablet {
+            width: 17rem;
+            padding-right: 3rem;
         }
     }
 }

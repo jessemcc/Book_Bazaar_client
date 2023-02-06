@@ -8,9 +8,11 @@
     border: 1px solid $primary-color-1;
     border-radius: 6px;
     box-shadow: 0.5rem 0.5rem 0.75rem rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    color: $primary-color-1;
 
     @include tablet {
-        width: 20rem;
+        width: 30%;
     }
 
     @include desktop {

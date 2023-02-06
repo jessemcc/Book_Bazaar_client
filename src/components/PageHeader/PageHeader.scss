@@ -45,6 +45,29 @@
         }
     }
 
+    &__link {
+        @include font-styles(1.6rem, 1.8rem, 400);
+        text-decoration: none;
+        color: $primary-color-1;
+        margin: 0;
+
+        @include tablet {
+            @include font-styles(1.8rem, 1.8rem, 400);
+        }
+
+        &:hover {
+            color: $primary-color-2;
+        }
+    }
+
+    &__shopping-cart-link {
+        color: $primary-color-1;
+
+        &:hover {
+            color: $primary-color-2;
+        }
+    }
+
     &__logo {
         width: 12rem;
     }
