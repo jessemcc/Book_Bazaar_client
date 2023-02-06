@@ -16,10 +16,6 @@
         @include tablet {
             margin: 3rem auto;
         }
-
-        @include desktop {
-            margin: 5rem auto;
-        }
     }
 
     &__label {
