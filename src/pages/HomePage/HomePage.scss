@@ -1,0 +1,59 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.home {
+    width: 100%;
+    padding: 1.6rem;
+
+    @include tablet {
+        padding: 1.6rem 2.4rem;
+    }
+
+    @include desktop {
+        padding: 1.6rem 3.6rem;
+    }
+
+    &__container {
+        @include tablet {
+            max-width: 102rem;
+            margin: 0 auto;
+        }
+    }
+
+    &__featured-container {
+        width: 100%;
+        text-align: center;
+
+        @include tablet {
+            max-width: 102rem;
+        }
+    }
+
+    &__featured-books {
+        @include flex(column, center, center, initial);
+
+        @include tablet {
+            @include flex(row, space-between, flex-start, nowrap);
+            padding-top: 1.6rem;
+        }
+    }
+
+    &__book-list-titles {
+        display: none;
+
+        @include tablet {
+            @include flex(row, space-between, center, nowrap);
+            height: 4rem;
+            border-top: 2px solid $primary-color-2;
+            border-bottom: 2px solid $primary-color-2;
+            padding: 0 2.4rem;
+        }
+    }
+
+    &__book-list-title {
+        @include tablet {
+            width: 17rem;
+            padding-right: 3rem;
+        }
+    }
+}

@@ -14,6 +14,7 @@ html {
 
 body {
     font-family: "Caslon";
+    color: $primary-color-1;
     font-size: 1.6rem;
     margin: 0 auto;
     background-color: $background-color-1;
@@ -58,16 +59,10 @@ h4 {
 }
 
 a {
-    @include font-styles(1.6rem, 1.8rem, 400);
     text-decoration: none;
     color: $primary-color-1;
+}
+
+p {
     margin: 0;
-
-    @include tablet {
-        @include font-styles(1.8rem, 1.8rem, 400);
-    }
-
-    &:hover {
-        color: $primary-color-2;
-    }
 }

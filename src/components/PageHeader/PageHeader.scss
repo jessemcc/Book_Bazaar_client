@@ -31,7 +31,7 @@
 
         @include tablet {
             @include flex(row, space-between, center, initial);
-            width: 30rem;
+            width: 32rem;
         }
     }
 
@@ -41,6 +41,30 @@
 
         @include tablet {
             justify-content: flex-start;
+            width: 14rem;
+        }
+    }
+
+    &__link {
+        @include font-styles(1.6rem, 1.8rem, 400);
+        text-decoration: none;
+        color: $primary-color-1;
+        margin: 0;
+
+        @include tablet {
+            @include font-styles(1.8rem, 1.8rem, 400);
+        }
+
+        &:hover {
+            color: $primary-color-2;
+        }
+    }
+
+    &__shopping-cart-link {
+        color: $primary-color-1;
+
+        &:hover {
+            color: $primary-color-2;
         }
     }
 
@@ -52,6 +76,10 @@
         @include flex(row, space-evenly, center, nowrap);
         width: 100%;
         padding: 2.4rem 0;
+
+        @include tablet {
+            width: 24rem;
+        }
     }
 
     &__signup-container {
@@ -60,7 +88,7 @@
 
         @include tablet {
             align-items: flex-start;
-            width: 15rem;
+            width: 19rem;
         }
     }
 }
