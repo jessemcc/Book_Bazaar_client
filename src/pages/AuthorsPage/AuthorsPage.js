@@ -1,3 +1,4 @@
+import "./AuthorsPage.scss";
 import AuthorsList from "../../components/AuthorsList/AuthorsList";
 
 const AuthorsPage = () => {
