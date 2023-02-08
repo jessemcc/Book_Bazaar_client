@@ -50,13 +50,28 @@
             @include flex(column, space-between, space-between, nowrap);
             width: 40rem;
         }
+
+        @include desktop {
+            width: 35rem;
+            padding-right: 1.6rem;
+        }
     }
 
     &__title {
         margin: 0.5rem 0;
+        letter-spacing: 0.05rem;
+        line-height: 1.7;
     }
 
     &__content {
         color: $base-color-1;
+    }
+
+    &__description-container {
+        @include desktop {
+            border-left: 1px solid $primary-color-1;
+            width: 40rem;
+            padding-left: 1.6rem;
+        }
     }
 }
