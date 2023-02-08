@@ -9,7 +9,8 @@
     border-radius: 6px;
     box-shadow: 0.5rem 0.5rem 0.75rem rgba(0, 0, 0, 0.2);
     text-decoration: none;
-    color: $primary-color-1;
+    color: $base-color-1;
+    background-color: $secondary-color-2;
 
     @include tablet {
         width: 30%;
@@ -22,6 +23,8 @@
     &__book-cover {
         @include size(23rem, 30rem);
         margin: 1rem 0;
+        border: 1px solid $primary-color-1;
+        border-radius: 0.6rem;
 
         @include tablet {
             @include size(18rem, 22rem);
