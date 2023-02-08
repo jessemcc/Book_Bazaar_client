@@ -10,7 +10,7 @@ const AuthorsList = () => {
   useEffect(() => {
     try {
       const getAuthors = async () => {
-        const { data } = await axios.get(`${REACT_APP_API_URL}/authors`);
+        const { data } = await axios.get(`${REACT_APP_API_URL}/authors/books`);
         setAuthors(data);
       };
       getAuthors();
@@ -24,7 +24,6 @@ const AuthorsList = () => {
   }
 
   const authorsList = authors.map((author) => {
-    console.log(author);
     return (
       <Link to="/authors/:authorid" key={author.id} className="authors-list">
         <section className="authors-list__container">

@@ -1,11 +1,10 @@
 // import LoginPage from "../LoginPage/LoginPage";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 
 const SignUpPage = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [address, setAddress] = useState("");
@@ -23,25 +22,22 @@ const SignUpPage = () => {
     const { REACT_APP_API_URL } = process.env;
     console.log(portrait);
     const fd = new FormData();
-    fd.append("portrait", portrait, portrait.name);
+    fd.append("firstName", firstName);
+    fd.append("lastName", lastName);
+    fd.append("password", password);
+    fd.append("email", email);
+    fd.append("address", address);
+    fd.append("city", city);
+    fd.append("province", province);
+    fd.append("postal", postal);
+    fd.append("about", about);
+    fd.append("portrait", portrait);
     console.log(fd);
     try {
-      await axios.post(`${REACT_APP_API_URL}/signup`, {
-        firstName,
-        lastName,
-        username,
-        password,
-        email,
-        address,
-        city,
-        province,
-        postal,
-        about,
-        fd,
-      });
+      await axios.post(`${REACT_APP_API_URL}/signup`, fd);
       console.log("POST sent");
     } catch (error) {
-      console.error(`YOU FUCKED UP: ${error}`);
+      console.error(`YOU MESSED UP: ${error}`);
     }
   };
 
@@ -77,19 +73,6 @@ const SignUpPage = () => {
               value={lastName}
               onChange={(e) => {
                 setLastName(e.target.value);
-              }}
-            />
-          </label>
-          <label name="username" className="signup__label">
-            Username:
-            <input
-              type="text"
-              name="username"
-              className="signup__input"
-              placeholder="Insert Username..."
-              value={username}
-              onChange={(e) => {
-                setUsername(e.target.value);
               }}
             />
           </label>

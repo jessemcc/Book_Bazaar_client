@@ -1,14 +1,14 @@
-import "./BookList.scss";
+import "./FeaturedBookList.scss";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-const BookList = () => {
+const FeaturedBookList = () => {
   const [bookList, setBookList] = useState([]);
+  const { REACT_APP_API_URL } = process.env;
 
   useEffect(() => {
     try {
-      const { REACT_APP_API_URL } = process.env;
       const getFeatured = async () => {
         const { data } = await axios.get(`${REACT_APP_API_URL}/books`);
         setBookList(data);
@@ -54,4 +54,4 @@ const BookList = () => {
   return books;
 };
 
-export default BookList;
+export default FeaturedBookList;
