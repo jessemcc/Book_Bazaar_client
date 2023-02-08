@@ -11,6 +11,7 @@
         box-shadow: 0.5rem 0.5rem 0.75rem rgba(0, 0, 0, 0.2);
         padding: 1.6rem;
         margin-bottom: 1.6rem;
+        background-color: $secondary-color-2;
 
         @include tablet {
             @include flex(row, space-between, center, wrap);
@@ -28,7 +29,7 @@
         border-radius: 0.6rem;
 
         @include tablet {
-            @include size(18rem, 25rem);
+            @include size(19.5rem, 25rem);
         }
 
         @include desktop {
@@ -47,7 +48,7 @@
     }
 
     &__title {
-        color: $base-color-1;
+        color: $primary-color-1;
         margin: 1.6rem 0;
 
         @include tablet {
@@ -61,8 +62,10 @@
 
     &__author-info,
     &__book-title {
-        color: $primary-color-1;
+        color: $base-color-1;
         margin-left: 0.25rem;
+        letter-spacing: 0.05rem;
+        line-height: 1.7;
     }
 
     &__featured-book-container {
