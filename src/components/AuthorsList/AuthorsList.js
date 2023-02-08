@@ -1,3 +1,4 @@
+import "./AuthorList.scss";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
@@ -36,20 +37,34 @@ const AuthorsList = () => {
           </article>
           <article className="authors-list__author-info-container">
             <h3 className="authors-list__title">
-              Name:{" "}
-              <span className="authors-list__author-name">{`${author.first_name} ${author.last_name}`}</span>
+              NAME:{" "}
+              <span className="authors-list__author-info">{`${author.author}`}</span>
             </h3>
             <h3 className="authors-list__title">
-              About Author:{" "}
-              <span className="authors-list__author-name">{`${author.about}`}</span>
+              ABOUT:{" "}
+              <span className="authors-list__author-info">{`${author.about}`}</span>
             </h3>
           </article>
-          <article className="authors-list__featured-book-container">
-            <img
-              src={REACT_APP_API_URL + authors.cover_path}
-              alt=""
-              className="authors-list__featured-book"
-            />
+          <article
+            to="/books/:bookid"
+            className="authors-list__featured-book-container"
+          >
+            <h3 className="authors-list__featured-title">
+              FEATURED BOOK:{" "}
+              <span className="authors-list__book-title">
+                {author.books[0].book_name}
+              </span>
+            </h3>
+            <Link
+              to="/books/:bookid"
+              className="authors-list__featured-book-link"
+            >
+              <img
+                src={REACT_APP_API_URL + author.books[0].cover_path}
+                alt="featured book from author"
+                className="authors-list__featured-book"
+              />
+            </Link>
           </article>
         </section>
       </Link>
