@@ -1,6 +1,6 @@
 import "./HomePage.scss";
 import Featured from "../../components/Featured/Featured";
-import BookList from "../../components/BookList/BookList";
+import FeaturedBookList from "../../components/FeaturedBookList/FeaturedBookList";
 
 const HomePage = () => {
   return (
@@ -19,7 +19,7 @@ const HomePage = () => {
             <h3 className="home__book-list-title">Genre</h3>
             <h3 className="home__book-list-price">Price</h3>
           </article>
-          <BookList />
+          <FeaturedBookList />
         </article>
       </section>
     </section>
