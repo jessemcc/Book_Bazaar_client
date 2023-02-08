@@ -8,13 +8,14 @@ const BookList = () => {
 
   useEffect(() => {
     try {
+      const { REACT_APP_API_URL } = process.env;
       const getFeatured = async () => {
-        const { data } = await axios.get("http://localhost:8080/books");
+        const { data } = await axios.get(`${REACT_APP_API_URL}/books`);
         setBookList(data);
       };
       getFeatured();
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   }, []);
 
