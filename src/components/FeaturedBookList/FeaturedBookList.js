@@ -28,7 +28,7 @@ const FeaturedBookList = () => {
     .splice(0, 10)
     .map((book) => {
       return (
-        <Link to="books/:bookid" key={book.id} className="bookList">
+        <Link to={`/books/${book.id}`} key={book.id} className="bookList">
           <article className="bookList__title">
             <h3 className="bookList__h3">Title</h3>
             <p to="/books/:bookid" className="bookList__p">

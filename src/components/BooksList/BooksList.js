@@ -25,7 +25,7 @@ const BookList = () => {
 
   const books = booksList.map((book) => {
     return (
-      <Link to="/books/:bookid" key={book.id} className="book-card">
+      <Link to={`/books/${book.id}`} key={book.id} className="book-card">
         <article className="book-card__container">
           <article className="book-card__image-info-container">
             <img
