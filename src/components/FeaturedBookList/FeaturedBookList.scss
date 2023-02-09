@@ -2,60 +2,60 @@
 @use "../../styles/partials/variables" as *;
 
 .bookList {
-    @include flex(column, flex-start, flex-start, wrap);
-    border-top: 1px solid $secondary-color-2;
-    height: 17rem;
-    padding: 1rem 0;
+  @include flex(column, flex-start, flex-start, wrap);
+  border-top: 1px solid $secondary-color-2;
+  height: 20rem;
+  padding: 1rem 0;
+
+  @include tablet {
+    @include flex(row, space-between, center, initial);
+    height: 4rem;
+    padding: 1rem 2.4rem;
+    border-top: none;
+    border-bottom: 1px solid $secondary-color-2;
+  }
+
+  &__title {
+    @include size(50%, 13rem);
 
     @include tablet {
-        @include flex(row, space-between, center, initial);
-        height: 4rem;
-        padding: 1rem 2.4rem;
-        border-top: none;
-        border-bottom: 1px solid $secondary-color-2;
+      width: 20rem;
+      height: 100%;
     }
+  }
 
-    &__title {
-        @include size(50%, 11rem);
+  &__author {
+    width: 45%;
 
-        @include tablet {
-            width: 20rem;
-            height: 100%;
-        }
+    @include tablet {
+      width: 20rem;
     }
+  }
 
-    &__author {
-        width: 45%;
+  &__genre {
+    @extend .bookList__title;
+  }
 
-        @include tablet {
-            width: 20rem;
-        }
+  &__price {
+    width: 45%;
+
+    @include tablet {
+      width: initial;
     }
+  }
 
-    &__genre {
-        @extend .bookList__title;
+  &__h3 {
+    @include tablet {
+      display: none;
     }
+  }
 
-    &__price {
-        width: 45%;
-
-        @include tablet {
-            width: initial;
-        }
+  &__p {
+    @include tablet {
+      width: 17rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
-
-    &__h3 {
-        @include tablet {
-            display: none;
-        }
-    }
-
-    &__p {
-        @include tablet {
-            width: 17rem;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-    }
+  }
 }

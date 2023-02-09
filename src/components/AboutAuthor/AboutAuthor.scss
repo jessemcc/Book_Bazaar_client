@@ -1,0 +1,28 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.about-author {
+  &__container {
+    @include flex(column, space-between, center, nowrap);
+    width: 90%;
+    margin: 0 auto;
+    padding: 1.6rem;
+    margin-bottom: 1.6rem;
+
+    @include tablet {
+      @include flex(row, space-between, center, wrap);
+      width: 100%;
+      max-width: 102rem;
+    }
+
+    @include desktop {
+      @include flex(row, space-between, center, nowrap);
+    }
+  }
+
+  &__portrait {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 102rem;
+  }
+}
