@@ -41,7 +41,7 @@ const AuthorsList = () => {
           <article className="authors-list__author-info-container">
             <h3 className="authors-list__title">
               NAME:{" "}
-              <span className="authors-list__author-info">{`${author.author}`}</span>
+              <span className="authors-list__author-info">{`${author.first_name} ${author.last_name}`}</span>
             </h3>
             <h3 className="authors-list__title">
               ABOUT:{" "}
