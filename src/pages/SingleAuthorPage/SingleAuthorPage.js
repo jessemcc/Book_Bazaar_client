@@ -49,6 +49,7 @@ const SingleAuthorPage = () => {
         <article className="author__about-container">
           <AboutAuthor data={currentAuthor} />
         </article>
+        <h1 className="author__books-title">{`Books from ${currentAuthor[0].first_name} ${currentAuthor[0].last_name}`}</h1>
         <article className="author__book-list">
           <AuthorBooks data={currentAuthorBooks} />
         </article>

@@ -8,15 +8,13 @@
     margin: 0 auto;
     padding: 1.6rem;
     margin-bottom: 1.6rem;
+    border-bottom: 1px solid $primary-color-1;
 
     @include tablet {
-      @include flex(row, space-between, center, wrap);
+      @include flex(row, space-evenly, center, wrap);
       width: 100%;
       max-width: 102rem;
-    }
-
-    @include desktop {
-      @include flex(row, space-between, center, nowrap);
+      padding-bottom: 2rem;
     }
   }
 
@@ -24,5 +22,25 @@
     width: 100%;
     margin: 0 auto;
     max-width: 102rem;
+    border-radius: 0.6rem;
+
+    @include tablet {
+      width: 30rem;
+      margin: 0;
+    }
+  }
+
+  &__info-container {
+    @include tablet {
+      width: 30rem;
+    }
+  }
+
+  &__title {
+    margin: 1.6rem 0;
+  }
+
+  &__content {
+    color: $base-color-1;
   }
 }

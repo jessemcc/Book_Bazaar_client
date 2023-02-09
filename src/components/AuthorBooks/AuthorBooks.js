@@ -18,7 +18,7 @@ const AuthorBooks = ({ data }) => {
             <span className="author-books__content">{book.book_name}</span>
           </h3>
           <h3 className="author-books__title">
-            PRICE: <span className="author-books__content">{book.price}</span>
+            PRICE: <span className="author-books__content">{book.price}$</span>
           </h3>
         </article>
       </Link>
