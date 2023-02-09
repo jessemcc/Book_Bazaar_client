@@ -25,7 +25,11 @@ const AuthorsList = () => {
 
   const authorsList = authors.map((author) => {
     return (
-      <Link to="/authors/:authorid" key={author.id} className="authors-list">
+      <Link
+        to={`/authors/${author.id}`}
+        key={author.id}
+        className="authors-list"
+      >
         <section className="authors-list__container">
           <article className="authors-list__author-portrait-container">
             <img
