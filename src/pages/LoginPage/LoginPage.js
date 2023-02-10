@@ -6,11 +6,11 @@ const LoginPage = () => {
     <section className="login">
       <article className="login__container">
         <h1 className="login__title">LOGIN</h1>
-        <label className="login__label" name="username">
+        <label className="login__label" name="email">
           <input
-            placeholder="Insert username here..."
-            type="text"
-            name="username"
+            placeholder="Insert email here..."
+            type="email"
+            name="email"
             className="login__input"
           />
         </label>

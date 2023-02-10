@@ -1,16 +1,9 @@
-import { useState } from "react";
 import "./CheckoutPage.scss";
 
-const CheckoutPage = (props) => {
-  const { cart } = props;
-
+const CheckoutPage = () => {
   return (
     <section className="checkout">
-      <article className="checkout__container">
-        {cart.map((book, index) => (
-          <p key={index}>{book.book_name}</p>
-        ))}
-      </article>
+      <article className="checkout__container"></article>
     </section>
   );
 };

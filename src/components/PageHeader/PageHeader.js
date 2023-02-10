@@ -21,7 +21,7 @@ const PageHeader = () => {
           </article>
         </article>
         <article className="header__signup-container">
-          <Link to="/shopping-cart" className="header__shopping-cart-link">
+          <Link to="/checkout" className="header__shopping-cart-link">
             <HiShoppingCart />
           </Link>
           <Link to="/signup" className="header__link">

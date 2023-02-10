@@ -1,6 +1,8 @@
 // import LoginPage from "../LoginPage/LoginPage";
+import "./SignUpPage.scss";
 import { useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const SignUpPage = () => {
   const [firstName, setFirstName] = useState("");
@@ -49,9 +51,10 @@ const SignUpPage = () => {
   return (
     <section className="signup">
       <section className="signup__container">
+        <h1 className="signup__title">SIGN UP</h1>
         <form onSubmit={submitHandler} className="signup__form">
           <label name="firstName" className="signup__label">
-            First Name:
+            FIRST NAME
             <input
               type="text"
               name="firstName"
@@ -64,7 +67,7 @@ const SignUpPage = () => {
             />
           </label>
           <label name="lastName" className="signup__label">
-            Last Name:
+            LAST NAME
             <input
               type="text"
               name="lastName"
@@ -77,7 +80,7 @@ const SignUpPage = () => {
             />
           </label>
           <label name="password" className="signup__label">
-            Password:
+            PASSWORD
             <input
               type="password"
               name="password"
@@ -90,7 +93,7 @@ const SignUpPage = () => {
             />
           </label>
           <label name="confirm-password" className="signup__label">
-            Confirm Password:
+            CONFIRM PASSWORD
             <input
               type="password"
               name="confirm-password"
@@ -99,7 +102,7 @@ const SignUpPage = () => {
             />
           </label>
           <label name="email" className="signup__label">
-            Email:
+            EMAIL
             <input
               type="email"
               name="email"
@@ -112,7 +115,7 @@ const SignUpPage = () => {
             />
           </label>
           <label name="address" className="signup__label">
-            Street Address:
+            STREET ADDRESS
             <input
               type="text"
               name="address"
@@ -125,7 +128,7 @@ const SignUpPage = () => {
             />
           </label>
           <label name="city" className="signup__label">
-            City:
+            CITY
             <input
               type="text"
               name="city"
@@ -138,7 +141,7 @@ const SignUpPage = () => {
             />
           </label>
           <label name="province" className="signup__label">
-            Province:
+            PROVINCE
             <input
               type="text"
               name="province"
@@ -151,7 +154,7 @@ const SignUpPage = () => {
             />
           </label>
           <label name="postal" className="signup__label">
-            Postal Code:
+            POSTAL CODE
             <input
               type="text"
               name="postal"
@@ -163,11 +166,11 @@ const SignUpPage = () => {
               }}
             />
           </label>
-          <label name="about" className="signup__label">
-            About me:
+          <label name="about" className="signup__textarea-label">
+            ABOUT ME
             <textarea
               name="about"
-              className="signup__input"
+              className="signup__textarea"
               placeholder="Tell us about yourself..."
               value={about}
               onChange={(e) => {
@@ -176,22 +179,22 @@ const SignUpPage = () => {
             />
           </label>
           <label name="portrait" className="signup__label">
-            Upload Display Picture:
+            UPLOAD DISPLAY PICTURE
             <input
               type="file"
               name="portrait"
-              className="signup__input"
+              className="signup__upload"
               onChange={handleImageUpload}
             />
-            <img
-              src={portrait}
-              alt="Display Picture"
-              className="signup__display-picture"
-            />
           </label>
-          <button type="submit" className="signup__submit">
-            Sign Up
-          </button>
+          <div className="signup__buttons">
+            <button type="submit" className="signup__button">
+              SIGN UP
+            </button>
+            <Link to="login" className="signup__button">
+              LOGIN
+            </Link>
+          </div>
         </form>
       </section>
     </section>
