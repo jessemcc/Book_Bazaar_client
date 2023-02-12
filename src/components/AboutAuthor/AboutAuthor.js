@@ -1,7 +1,6 @@
 import "./AboutAuthor.scss";
 
 const AboutAuthor = ({ data }) => {
-  console.log(data);
   const { about, first_name, last_name, id, portrait_path } = data[0];
   const { REACT_APP_API_URL } = process.env;
 

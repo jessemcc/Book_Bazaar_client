@@ -54,4 +54,21 @@
   &__content {
     color: $base-color-1;
   }
+
+  &__no-books-message-container {
+    text-align: center;
+    width: 90%;
+    max-width: 40rem;
+    margin: 0 auto;
+    border: 1px solid $primary-color-1;
+    border-radius: 0.6rem;
+    box-shadow: 0.5rem 0.5rem 0.75rem rgba(0, 0, 0, 0.2);
+    padding: 1.6rem;
+    margin-bottom: 1.6rem;
+    background-color: $secondary-color-2;
+
+    @include tablet {
+      width: 100%;
+    }
+  }
 }
