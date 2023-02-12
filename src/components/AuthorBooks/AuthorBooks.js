@@ -25,7 +25,15 @@ const AuthorBooks = ({ data }) => {
     );
   });
 
-  return booksList;
+  return data.length === 0 ? (
+    <article className="author-books__no-books-message-container">
+      <h2 className="author-books__no-books-massage">
+        Please upload a book to be shown in the Authors section
+      </h2>
+    </article>
+  ) : (
+    booksList
+  );
 };
 
 export default AuthorBooks;

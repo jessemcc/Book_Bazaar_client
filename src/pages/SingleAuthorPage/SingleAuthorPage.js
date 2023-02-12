@@ -23,7 +23,7 @@ const SingleAuthorPage = () => {
     } catch (error) {
       console.error(error);
     }
-  }, []);
+  }, [authorid]);
 
   useEffect(() => {
     try {
@@ -37,7 +37,7 @@ const SingleAuthorPage = () => {
     } catch (error) {
       console.error(error);
     }
-  }, []);
+  }, [authorid]);
 
   if (!currentAuthor || !currentAuthorBooks) {
     return <p>Loading...</p>;

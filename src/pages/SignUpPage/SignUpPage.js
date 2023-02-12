@@ -2,7 +2,7 @@
 import "./SignUpPage.scss";
 import { useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const SignUpPage = () => {
   const [firstName, setFirstName] = useState("");
@@ -15,6 +15,7 @@ const SignUpPage = () => {
   const [postal, setPostal] = useState("");
   const [about, setAbout] = useState("");
   const [portrait, setPortrait] = useState(null);
+  const navigate = useNavigate();
 
   const handleImageUpload = (e) => {
     setPortrait(e.target.files[0]);
@@ -38,6 +39,7 @@ const SignUpPage = () => {
     try {
       await axios.post(`${REACT_APP_API_URL}/signup`, fd);
       console.log("POST sent");
+      alert("You have successfully created your account");
     } catch (error) {
       console.error(`YOU MESSED UP: ${error}`);
     }
@@ -46,6 +48,7 @@ const SignUpPage = () => {
   const submitHandler = (e) => {
     e.preventDefault();
     signUpUser();
+    navigate("/login");
   };
 
   return (
@@ -191,7 +194,7 @@ const SignUpPage = () => {
             <button type="submit" className="signup__button">
               SIGN UP
             </button>
-            <Link to="login" className="signup__button">
+            <Link to="/login" className="signup__button">
               LOGIN
             </Link>
           </div>
