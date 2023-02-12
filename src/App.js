@@ -8,6 +8,7 @@ import AuthorsPage from "./pages/AuthorsPage/AuthorsPage";
 import SingleAuthorPage from "./pages/SingleAuthorPage/SingleAuthorPage";
 import CheckoutPage from "./pages/CheckoutPage/CheckoutPage";
 import PageHeader from "./components/PageHeader/PageHeader";
+import SuccessPage from "./pages/SuccessPage/SuccessPage";
 import "./App.scss";
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
         <Route path="/authors" element={<AuthorsPage />} />
         <Route path="/authors/:authorid" element={<SingleAuthorPage />} />
         <Route path="/checkout" element={<CheckoutPage />} />
+        <Route path="/success" element={<SuccessPage />} />
       </Routes>
     </Router>
   );
