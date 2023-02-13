@@ -5,6 +5,7 @@ import "./SuccessPage.scss";
 
 const SuccessPage = () => {
   const { REACT_APP_API_URL } = process.env;
+  document.title = "Book Bazaar - Success";
 
   useEffect(() => {
     try {
