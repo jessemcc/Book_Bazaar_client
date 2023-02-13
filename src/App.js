@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useState } from "react";
 import HomePage from "./pages/HomePage/HomePage";
 import SignUpPage from "./pages/SignUpPage/SignUpPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
@@ -10,7 +11,6 @@ import CheckoutPage from "./pages/CheckoutPage/CheckoutPage";
 import PageHeader from "./components/PageHeader/PageHeader";
 import SuccessPage from "./pages/SuccessPage/SuccessPage";
 import "./App.scss";
-import { useState } from "react";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
