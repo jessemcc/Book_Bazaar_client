@@ -1,14 +1,16 @@
 import "./LoginPage.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 
-const LoginPage = () => {
+const LoginPage = ({ setIsLoggedIn }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { REACT_APP_API_URL } = process.env;
+  const navigate = useNavigate();
 
   const handleLogin = async (e) => {
+    e.preventDefault();
     try {
       await axios
         .post(`${REACT_APP_API_URL}/login`, {
@@ -18,6 +20,8 @@ const LoginPage = () => {
         .then((res) => {
           localStorage.setItem("jwtToken", res.data.token);
           alert("Successfully logged in.");
+          setIsLoggedIn(true);
+          navigate("/");
         });
     } catch (error) {
       console.error(error);

@@ -5,10 +5,9 @@ import { HiShoppingCart } from "react-icons/hi";
 import { useEffect, useState } from "react";
 import jwtDecode from "jwt-decode";
 
-const PageHeader = () => {
+const PageHeader = ({ isLoggedIn, setIsLoggedIn }) => {
   const [authorName, setAuthorName] = useState("");
   const [authorId, setAuthorId] = useState("");
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const jwtToken = localStorage.getItem("jwtToken");
 
   const handleLogout = () => {
@@ -23,7 +22,7 @@ const PageHeader = () => {
       setAuthorId(decodedToken.id);
       setIsLoggedIn(true);
     }
-  }, [jwtToken]);
+  }, [isLoggedIn]);
 
   return (
     <section className="header">

@@ -10,15 +10,21 @@ import CheckoutPage from "./pages/CheckoutPage/CheckoutPage";
 import PageHeader from "./components/PageHeader/PageHeader";
 import SuccessPage from "./pages/SuccessPage/SuccessPage";
 import "./App.scss";
+import { useState } from "react";
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   return (
     <Router>
-      <PageHeader />
+      <PageHeader setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/signup" element={<SignUpPage />} />
-        <Route path="/login" element={<LoginPage />} />
+        <Route
+          path="/login"
+          element={<LoginPage setIsLoggedIn={setIsLoggedIn} />}
+        />
         <Route path="/books" element={<BooksPage />} />
         <Route path="/books/:bookid" element={<SingleBookPage />} />
         <Route path="/authors" element={<AuthorsPage />} />
