@@ -31,7 +31,7 @@
 
     @include tablet {
       @include flex(row, space-between, center, initial);
-      width: 32rem;
+      width: 36rem;
     }
   }
 
@@ -61,6 +61,7 @@
   }
 
   &__shopping-cart-link {
+    @include flex(initial, center, center, initial);
     color: $primary-color-1;
 
     &:hover {
@@ -87,14 +88,18 @@
     width: 100%;
 
     @include tablet {
-      align-items: flex-start;
-      width: 45%;
+      width: 22rem;
     }
+  }
+
+  &__loggedin-container {
+    @include flex(row, space-between, center, nowrap);
+    width: 30rem;
   }
 
   &__author-name {
     color: $secondary-color-1;
-    width: 20rem;
+    width: 16rem;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;

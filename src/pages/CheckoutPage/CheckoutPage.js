@@ -1,7 +1,7 @@
 import "./CheckoutPage.scss";
 import CheckoutItems from "../../components/CheckoutItems/CheckoutItems";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const CheckoutPage = () => {
   const [firstName, setFirstName] = useState("");
@@ -15,6 +15,92 @@ const CheckoutPage = () => {
   const [expMonth, setExpMonth] = useState("");
   const [expYear, setExpYear] = useState("");
   const [security, setSecurity] = useState("");
+  const navigate = useNavigate();
+
+  const postalCodeRegex = /^[A-Za-z][0-9][A-Za-z] ?[0-9][A-Za-z][0-9]$/;
+  const creditNumbersRegex = /^\d{4}(\s|-)?\d{4}(\s|-)?\d{4}(\s|-)?\d{4}$/;
+  const securityNumRegex = /^[0-9][0-9][0-9]$/;
+  const today = new Date();
+  const currentYear = today.getFullYear().toString().slice(-2);
+  const currentMonth = (today.getMonth() + 1).toString().padStart(2, "0");
+  const canadianProvinces = [
+    "ALBERTA",
+    "BRITISH COLUMBIA",
+    "MANITOBA",
+    "NEW BRUNSWICK",
+    "NEWFOUNDLAND AND LABRADOR",
+    "NOVA SCOTIA",
+    "ONTARIO",
+    "PRINCE EDWARD ISLAND",
+    "QUEBEC",
+    "SASKATCHEWAN",
+    "AB",
+    "NL",
+    "PE",
+    "NS",
+    "NB",
+    "QC",
+    "ON",
+    "MB",
+    "SK",
+    "BC",
+    "YT",
+    "NT",
+    "NU",
+  ];
+
+  const handleNameChange = (e, func) => {
+    const name = e.target.value;
+    const onlyLetters = /^[a-zA-Z\s]+$/;
+    if (onlyLetters.test(name)) {
+      func(name);
+    }
+  };
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    if (!postalCodeRegex.test(postal)) {
+      alert(
+        `Invalid Postal Code Format. Postal code example with no spaces: "A1A1A1"`
+      );
+      return;
+    }
+    if (!canadianProvinces.includes(province.toUpperCase())) {
+      alert("Please enter a valid Canadian province with it's name in full.");
+      return;
+    }
+    if (!creditNumbersRegex.test(cardNumber)) {
+      alert("Please enter a valid credit card");
+      return;
+    }
+    if (!securityNumRegex.test(security)) {
+      alert("Please enter valid security number");
+      return;
+    }
+    if (
+      expYear < currentYear ||
+      (expYear === currentYear && expMonth < currentMonth)
+    ) {
+      alert("The expiry date has passed. Please select a valid date.");
+    }
+    if (
+      !firstName ||
+      !lastName ||
+      !address ||
+      !city ||
+      !province ||
+      !postal ||
+      !cardName ||
+      !cardNumber ||
+      !expMonth ||
+      !expYear ||
+      !security
+    ) {
+      alert("Please fill out all fields");
+      return;
+    }
+    navigate("/success");
+  };
 
   return (
     <section className="checkout">
@@ -25,7 +111,7 @@ const CheckoutPage = () => {
       </article>
       <article className="checkout__form-container">
         <h2 className="checkout__title">SHIPPING INFORMATION</h2>
-        <form className="checkout__form">
+        <form className="checkout__form" onSubmit={submitHandler}>
           <label name="firstName" className="checkout__label">
             FIRST NAME
             <input
@@ -35,7 +121,7 @@ const CheckoutPage = () => {
               placeholder="Insert First Name..."
               value={firstName}
               onChange={(e) => {
-                setFirstName(e.target.value);
+                handleNameChange(e, setFirstName);
               }}
             />
           </label>
@@ -48,7 +134,7 @@ const CheckoutPage = () => {
               placeholder="Insert First Name..."
               value={lastName}
               onChange={(e) => {
-                setLastName(e.target.value);
+                handleNameChange(e, setLastName);
               }}
             />
           </label>
@@ -114,7 +200,7 @@ const CheckoutPage = () => {
               placeholder="Insert credit card name..."
               value={cardName}
               onChange={(e) => {
-                setCardName(e.target.value);
+                handleNameChange(e, setCardName);
               }}
             />
           </label>
@@ -198,9 +284,9 @@ const CheckoutPage = () => {
               }}
             />
           </label>
-          <Link to="/success" className="checkout__button">
+          <button type="submit" className="checkout__button">
             COMPLETE PURCHASE
-          </Link>
+          </button>
         </form>
       </article>
     </section>

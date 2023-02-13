@@ -19,8 +19,8 @@
     @include size(50%, 13rem);
 
     @include tablet {
-      width: 20rem;
-      height: 100%;
+      @include flex(row, flex-start, center, initial);
+      @include size(20rem, 100%);
     }
   }
 

@@ -41,33 +41,34 @@ const PageHeader = () => {
             </Link>
           </article>
         </article>
-        <article className="header__signup-container">
-          <Link to="/checkout" className="header__shopping-cart-link">
-            <HiShoppingCart />
-          </Link>
-          {isLoggedIn ? (
-            <>
-              <Link
-                to={`/authors/${authorId}`}
-                className="header__link header__author-name"
-              >
-                {authorName.toUpperCase()}
-              </Link>
-              <Link to="/" onClick={handleLogout} className="header__link">
-                LOGOUT
-              </Link>
-            </>
-          ) : (
-            <>
-              <Link to="/signup" className="header__link">
-                SIGN UP
-              </Link>
-              <Link to="/login" className="header__link">
-                LOGIN
-              </Link>
-            </>
-          )}
-        </article>
+        {isLoggedIn ? (
+          <article className="header__loggedin-container">
+            <Link to="/checkout" className="header__shopping-cart-link">
+              <HiShoppingCart />
+            </Link>
+            <Link
+              to={`/authors/${authorId}`}
+              className="header__link header__author-name"
+            >
+              {authorName.toUpperCase()}
+            </Link>
+            <Link to="/" onClick={handleLogout} className="header__link">
+              LOGOUT
+            </Link>
+          </article>
+        ) : (
+          <article className="header__signup-container">
+            <Link to="/checkout" className="header__shopping-cart-link">
+              <HiShoppingCart />
+            </Link>
+            <Link to="/signup" className="header__link">
+              SIGN UP
+            </Link>
+            <Link to="/login" className="header__link">
+              LOGIN
+            </Link>
+          </article>
+        )}
       </section>
     </section>
   );

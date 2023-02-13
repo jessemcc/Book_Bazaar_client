@@ -30,15 +30,17 @@ const Featured = () => {
       return (
         <Link to={`/books/${book.id}`} key={book.id} className="featured-books">
           <h3 className="featured-books__featured-title">{book.book_name}</h3>
-          <img
-            src={REACT_APP_API_URL + book.cover_path}
-            alt="book cover"
-            className="featured-books__book-cover"
-          />
+          <div className="featured-books__book-cover-container">
+            <img
+              src={REACT_APP_API_URL + book.cover_path}
+              alt="book cover"
+              className="featured-books__book-cover"
+            />
+          </div>
           <h3 className="featured-books__featured-author">
             {`By: ${book.first_name} ${book.last_name}`}
           </h3>
-          <h3 className="featured-books__featured-price">{book.price}</h3>
+          <h3 className="featured-books__featured-price">{`${book.price}$`}</h3>
         </Link>
       );
     });

@@ -2,36 +2,52 @@
 @use "../../styles/partials/variables" as *;
 
 .featured-books {
-    padding: 1.6rem 0;
-    margin: 2rem 0;
-    width: 100%;
+  padding: 1.6rem;
+  margin: 2rem 0;
+  width: 100%;
+  border: 1px solid $primary-color-1;
+  border-radius: 6px;
+  box-shadow: 0.5rem 0.5rem 0.75rem rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  color: $base-color-1;
+  background-color: $secondary-color-2;
+
+  @include tablet {
+    @include flex(column, space-between, center, initial);
+    width: 30%;
+    height: 40rem;
+  }
+
+  @include desktop {
+    width: 30rem;
+    height: 47rem;
+  }
+
+  &__featured-title {
+    height: 9rem;
+  }
+
+  &__book-cover-container {
+    @include tablet {
+      @include flex(initial, center, center, nowrap);
+      height: 32rem;
+      margin-bottom: 1.6rem;
+    }
+  }
+
+  &__book-cover {
+    @include size(23rem, 30rem);
+    margin: 1rem 0;
     border: 1px solid $primary-color-1;
-    border-radius: 6px;
-    box-shadow: 0.5rem 0.5rem 0.75rem rgba(0, 0, 0, 0.2);
-    text-decoration: none;
-    color: $base-color-1;
-    background-color: $secondary-color-2;
+    border-radius: 0.6rem;
 
     @include tablet {
-        width: 30%;
+      @include size(18rem, 22rem);
+      margin: 0;
     }
 
     @include desktop {
-        width: 30rem;
+      @include size(25rem, 32rem);
     }
-
-    &__book-cover {
-        @include size(23rem, 30rem);
-        margin: 1rem 0;
-        border: 1px solid $primary-color-1;
-        border-radius: 0.6rem;
-
-        @include tablet {
-            @include size(18rem, 22rem);
-        }
-
-        @include desktop {
-            @include size(25rem, 32rem);
-        }
-    }
+  }
 }
