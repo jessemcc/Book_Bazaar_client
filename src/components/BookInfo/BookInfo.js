@@ -25,6 +25,7 @@ const BookInfo = ({ currentBook, setCurrentBook }) => {
     return <p>Loading...</p>;
   }
 
+  document.title = `Book Bazaar - ${currentBook[0].book_name}`;
   const handleAddToCart = async () => {
     try {
       await axios.post(`${REACT_APP_API_URL}/cart`, {
