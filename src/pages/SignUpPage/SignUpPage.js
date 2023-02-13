@@ -1,4 +1,3 @@
-// import LoginPage from "../LoginPage/LoginPage";
 import "./SignUpPage.scss";
 import { useState } from "react";
 import axios from "axios";
@@ -8,6 +7,7 @@ const SignUpPage = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [email, setEmail] = useState("");
   const [address, setAddress] = useState("");
   const [city, setCity] = useState("");
@@ -23,7 +23,6 @@ const SignUpPage = () => {
 
   const signUpUser = async () => {
     const { REACT_APP_API_URL } = process.env;
-    console.log(portrait);
     const fd = new FormData();
     fd.append("firstName", firstName);
     fd.append("lastName", lastName);
@@ -45,11 +44,77 @@ const SignUpPage = () => {
     }
   };
 
+  // FORM VALIDATION ===========================================================
+
+  const postalCodeRegex = /^[A-Za-z][0-9][A-Za-z] ?[0-9][A-Za-z][0-9]$/;
+  const canadianProvinces = [
+    "ALBERTA",
+    "BRITISH COLUMBIA",
+    "MANITOBA",
+    "NEW BRUNSWICK",
+    "NEWFOUNDLAND AND LABRADOR",
+    "NOVA SCOTIA",
+    "ONTARIO",
+    "PRINCE EDWARD ISLAND",
+    "QUEBEC",
+    "SASKATCHEWAN",
+    "AB",
+    "NL",
+    "PE",
+    "NS",
+    "NB",
+    "QC",
+    "ON",
+    "MB",
+    "SK",
+    "BC",
+    "YT",
+    "NT",
+    "NU",
+  ];
+
+  const handleNameChange = (e, func) => {
+    const name = e.target.value;
+    const onlyLetters = /^[a-zA-Z]+$/;
+    if (onlyLetters.test(name)) {
+      func(name);
+    }
+  };
+
   const submitHandler = (e) => {
     e.preventDefault();
+    if (!postalCodeRegex.test(postal)) {
+      alert(
+        `Invalid Postal Code Format. Postal code example with no spaces: "A1A1A1"`
+      );
+      return;
+    }
+    if (!canadianProvinces.includes(province.toUpperCase())) {
+      alert("Please enter a valid Canadian province with it's name in full.");
+      return;
+    }
+    if (password !== confirmPassword) {
+      alert("Passwords do not match");
+      return;
+    }
+    if (
+      !firstName ||
+      !lastName ||
+      !password ||
+      !email ||
+      !address ||
+      !city ||
+      !about ||
+      !portrait
+    ) {
+      alert("Please fill out all required fields");
+      return;
+    }
     signUpUser();
     navigate("/login");
   };
+
+  // SIGN UP COMPONENT ==================================================================
 
   return (
     <section className="signup">
@@ -65,7 +130,7 @@ const SignUpPage = () => {
               placeholder="Insert First Name..."
               value={firstName}
               onChange={(e) => {
-                setFirstName(e.target.value);
+                handleNameChange(e, setFirstName);
               }}
             />
           </label>
@@ -78,7 +143,7 @@ const SignUpPage = () => {
               placeholder="Insert Last Name..."
               value={lastName}
               onChange={(e) => {
-                setLastName(e.target.value);
+                handleNameChange(e, setLastName);
               }}
             />
           </label>
@@ -102,6 +167,9 @@ const SignUpPage = () => {
               name="confirm-password"
               className="signup__input"
               placeholder="Insert Password..."
+              onChange={(e) => {
+                setConfirmPassword(e.target.value);
+              }}
             />
           </label>
           <label name="email" className="signup__label">
