@@ -4,7 +4,6 @@ import "./SingleBookPage.scss";
 
 const SingleBookPage = () => {
   const [currentBook, setCurrentBook] = useState(null);
-  document.title = `Book Bazaar - ${currentBook[0].book_name}`;
 
   return (
     <section className="book">
