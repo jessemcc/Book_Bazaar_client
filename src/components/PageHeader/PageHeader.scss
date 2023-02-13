@@ -31,7 +31,7 @@
 
     @include tablet {
       @include flex(row, space-between, center, initial);
-      width: 32rem;
+      width: 36rem;
     }
   }
 
@@ -61,6 +61,7 @@
   }
 
   &__shopping-cart-link {
+    @include flex(initial, center, center, initial);
     color: $primary-color-1;
 
     &:hover {
@@ -87,7 +88,6 @@
     width: 100%;
 
     @include tablet {
-      align-items: flex-start;
       width: 22rem;
     }
   }
