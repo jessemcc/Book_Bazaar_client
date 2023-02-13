@@ -40,7 +40,7 @@ const Featured = () => {
           <h3 className="featured-books__featured-author">
             {`By: ${book.first_name} ${book.last_name}`}
           </h3>
-          <h3 className="featured-books__featured-price">{book.price}</h3>
+          <h3 className="featured-books__featured-price">{`${book.price}$`}</h3>
         </Link>
       );
     });
