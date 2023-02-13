@@ -1,0 +1,42 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.cart-item {
+  &__container {
+    @include flex(column, center, center, nowrap);
+    width: 100%;
+    margin: 0 auto;
+    border-bottom: 1px solid $primary-color-1;
+    padding: 1.6rem 0;
+    text-align: center;
+
+    @include tablet {
+      @include flex(row, space-between, center, wrap);
+      width: 100%;
+      max-width: 102rem;
+    }
+
+    @include desktop {
+      @include flex(row, space-between, center, nowrap);
+    }
+  }
+
+  &__total-price {
+    padding: 1.6rem;
+    text-align: center;
+    border-bottom: 1px solid $primary-color-1;
+    margin-bottom: 3rem;
+
+    @include tablet {
+      text-align: end;
+    }
+  }
+
+  &__delete {
+    color: $secondary-color-2;
+
+    :hover {
+      cursor: pointer;
+    }
+  }
+}

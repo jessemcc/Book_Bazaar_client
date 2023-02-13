@@ -1,0 +1,94 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.authors-list {
+  &__container {
+    @include flex(column, space-between, center, nowrap);
+    width: 90%;
+    margin: 0 auto;
+    border: 1px solid $primary-color-1;
+    border-radius: 0.6rem;
+    box-shadow: 0.5rem 0.5rem 0.75rem rgba(0, 0, 0, 0.2);
+    padding: 1.6rem;
+    margin-bottom: 1.6rem;
+    background-color: $secondary-color-2;
+
+    @include tablet {
+      @include flex(row, space-between, center, wrap);
+      width: 100%;
+      max-width: 102rem;
+    }
+
+    @include desktop {
+      @include flex(row, space-between, center, nowrap);
+    }
+  }
+
+  &__author-portrait {
+    width: 100%;
+    border-radius: 0.6rem;
+
+    @include tablet {
+      @include size(19.5rem, 25rem);
+    }
+
+    @include desktop {
+      @include size(26rem, 34rem);
+    }
+  }
+
+  &__author-info-container {
+    @include tablet {
+      width: 70%;
+    }
+
+    @include desktop {
+      width: 60%;
+    }
+  }
+
+  &__title {
+    color: $primary-color-1;
+    margin: 1.6rem 0;
+
+    @include tablet {
+      margin: 1.6rem;
+    }
+  }
+
+  &__featured-title {
+    @extend .authors-list__title;
+  }
+
+  &__author-info,
+  &__book-title {
+    color: $base-color-1;
+    margin-left: 0.25rem;
+  }
+
+  &__featured-book-container {
+    @include flex(column, center, center, nowrap);
+    width: 100%;
+
+    @include tablet {
+      margin-top: 1.6rem;
+    }
+
+    @include desktop {
+      text-align: center;
+      width: 46rem;
+      margin: 0;
+      padding-bottom: 1.6rem;
+    }
+  }
+
+  &__featured-book {
+    @include size(22.5rem, 28rem);
+    border-radius: 0.6rem;
+    border: 1px solid $primary-color-1;
+
+    @include tablet {
+      @include size(25rem, 35rem);
+    }
+  }
+}

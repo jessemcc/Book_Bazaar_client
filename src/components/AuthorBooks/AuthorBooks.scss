@@ -1,0 +1,74 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.author-books {
+  @include tablet {
+    width: 31%;
+    margin-bottom: 1.6rem;
+  }
+  &__container {
+    @include flex(column, space-between, center, nowrap);
+    width: 90%;
+    margin: 0 auto;
+    border: 1px solid $primary-color-1;
+    border-radius: 0.6rem;
+    box-shadow: 0.5rem 0.5rem 0.75rem rgba(0, 0, 0, 0.2);
+    padding: 1.6rem;
+    margin-bottom: 1.6rem;
+    background-color: $secondary-color-2;
+    text-align: center;
+
+    @include tablet {
+      @include flex(column, space-between, center, wrap);
+      @include size(100%, 42rem);
+      margin: 0;
+    }
+
+    @include desktop {
+      @include size(100%, 50rem);
+    }
+  }
+
+  &__cover {
+    @include size(22rem, 27rem);
+    border-radius: 0.6rem;
+    border: 1px solid $primary-color-1;
+
+    @include tablet {
+      @include size(19rem, 25rem);
+      margin: 0 auto;
+    }
+
+    @include desktop {
+      @include size(27rem, 35rem);
+    }
+  }
+
+  &__title {
+    margin: 1rem 0;
+
+    @include tablet {
+    }
+  }
+
+  &__content {
+    color: $base-color-1;
+  }
+
+  &__no-books-message-container {
+    text-align: center;
+    width: 90%;
+    max-width: 40rem;
+    margin: 0 auto;
+    border: 1px solid $primary-color-1;
+    border-radius: 0.6rem;
+    box-shadow: 0.5rem 0.5rem 0.75rem rgba(0, 0, 0, 0.2);
+    padding: 1.6rem;
+    margin-bottom: 1.6rem;
+    background-color: $secondary-color-2;
+
+    @include tablet {
+      width: 100%;
+    }
+  }
+}

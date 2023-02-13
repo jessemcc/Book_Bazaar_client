@@ -1,0 +1,79 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.book-card {
+  &__container {
+    @include flex(column, center, center, nowrap);
+    width: 90%;
+    margin: 0 auto;
+    border: 1px solid $primary-color-1;
+    border-radius: 0.6rem;
+    box-shadow: 0.5rem 0.5rem 0.75rem rgba(0, 0, 0, 0.2);
+    padding: 1.6rem;
+    margin-bottom: 1.6rem;
+    background-color: $secondary-color-2;
+
+    @include tablet {
+      @include flex(row, space-between, center, wrap);
+      width: 100%;
+      max-width: 102rem;
+    }
+
+    @include desktop {
+      @include flex(row, space-between, center, nowrap);
+    }
+  }
+
+  &__image-info-container {
+    @include flex(column, center, center, initial);
+    text-align: center;
+
+    @include tablet {
+      @include flex(row, space-between, center, nowrap);
+      height: 100%;
+      text-align: initial;
+    }
+  }
+
+  &__book-cover {
+    @include size(22.5rem, 30rem);
+    border-radius: 0.6rem;
+    border: 1px solid $primary-color-1;
+
+    @include tablet {
+      margin: 0 1.6rem 1.6rem 0;
+    }
+
+    @include desktop {
+      margin-bottom: 0;
+    }
+  }
+
+  &__book-info {
+    @include tablet {
+      @include flex(column, space-between, space-between, nowrap);
+      width: 40rem;
+    }
+
+    @include desktop {
+      width: 35rem;
+      padding-right: 1.6rem;
+    }
+  }
+
+  &__title {
+    margin: 0.5rem 0;
+  }
+
+  &__content {
+    color: $base-color-1;
+  }
+
+  &__description-container {
+    @include desktop {
+      border-left: 1px solid $primary-color-1;
+      width: 40rem;
+      padding-left: 1.6rem;
+    }
+  }
+}

@@ -1,0 +1,61 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.bookList {
+  @include flex(column, flex-start, flex-start, wrap);
+  border-top: 1px solid $secondary-color-2;
+  height: 20rem;
+  padding: 1rem 0;
+
+  @include tablet {
+    @include flex(row, space-between, center, initial);
+    height: 4rem;
+    padding: 1rem 2.4rem;
+    border-top: none;
+    border-bottom: 1px solid $secondary-color-2;
+  }
+
+  &__title {
+    @include size(50%, 13rem);
+
+    @include tablet {
+      @include flex(row, flex-start, center, initial);
+      @include size(20rem, 100%);
+    }
+  }
+
+  &__author {
+    width: 45%;
+
+    @include tablet {
+      width: 20rem;
+    }
+  }
+
+  &__genre {
+    @extend .bookList__title;
+  }
+
+  &__price {
+    width: 45%;
+
+    @include tablet {
+      width: initial;
+    }
+  }
+
+  &__h3 {
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__p {
+    @include tablet {
+      width: 17rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}
