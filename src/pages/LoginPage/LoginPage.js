@@ -17,9 +17,11 @@ const LoginPage = () => {
         })
         .then((res) => {
           localStorage.setItem("jwtToken", res.data.token);
+          alert("Successfully logged in.");
         });
     } catch (error) {
       console.error(error);
+      alert("Incorrect email or password");
     }
   };
 
