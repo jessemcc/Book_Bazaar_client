@@ -19,7 +19,7 @@ function App() {
     <Router>
       <PageHeader setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} />
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<HomePage isLoggedIn={isLoggedIn} />} />
         <Route path="/signup" element={<SignUpPage />} />
         <Route
           path="/login"

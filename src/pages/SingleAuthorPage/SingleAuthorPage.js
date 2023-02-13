@@ -43,6 +43,7 @@ const SingleAuthorPage = () => {
     return <p>Loading...</p>;
   }
 
+  document.title = `Book Bazaar - ${currentAuthor[0].first_name} ${currentAuthor[0].last_name}`;
   return (
     <section className="author">
       <article className="author__container">

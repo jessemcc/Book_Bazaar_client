@@ -2,7 +2,8 @@ import "./HomePage.scss";
 import Featured from "../../components/Featured/Featured";
 import FeaturedBookList from "../../components/FeaturedBookList/FeaturedBookList";
 
-const HomePage = () => {
+const HomePage = ({ isLoggedIn }) => {
+  document.title = "Book Bazaar - Home";
   return (
     <section className="home">
       <section className="home__container">
@@ -19,7 +20,7 @@ const HomePage = () => {
             <h3 className="home__book-list-title">Genre</h3>
             <h3 className="home__book-list-price">Price</h3>
           </article>
-          <FeaturedBookList />
+          <FeaturedBookList isLoggedIn={isLoggedIn} />
         </article>
       </section>
     </section>

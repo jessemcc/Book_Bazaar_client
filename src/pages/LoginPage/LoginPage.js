@@ -4,6 +4,7 @@ import { useState } from "react";
 import axios from "axios";
 
 const LoginPage = ({ setIsLoggedIn }) => {
+  document.title = "Book Bazaar - Login";
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { REACT_APP_API_URL } = process.env;

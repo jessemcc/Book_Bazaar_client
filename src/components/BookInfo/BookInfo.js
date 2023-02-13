@@ -3,8 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./BookInfo.scss";
 
-const BookInfo = () => {
-  const [currentBook, setCurrentBook] = useState(null);
+const BookInfo = ({ currentBook, setCurrentBook }) => {
   const { bookid } = useParams();
   const { REACT_APP_API_URL } = process.env;
 

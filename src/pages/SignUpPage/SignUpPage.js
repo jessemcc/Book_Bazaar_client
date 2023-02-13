@@ -4,6 +4,7 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 
 const SignUpPage = () => {
+  document.title = "Book Bazaar - Sign Up";
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [password, setPassword] = useState("");

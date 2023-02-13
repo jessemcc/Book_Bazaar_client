@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-const FeaturedBookList = () => {
+const FeaturedBookList = ({ isLoggedIn }) => {
   const [bookList, setBookList] = useState([]);
   const { REACT_APP_API_URL } = process.env;
 
@@ -17,7 +17,7 @@ const FeaturedBookList = () => {
     } catch (error) {
       console.error(error);
     }
-  }, []);
+  }, [isLoggedIn]);
 
   if (!bookList) {
     return <p>Loading...</p>;
