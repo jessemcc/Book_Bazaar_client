@@ -16,6 +16,7 @@ const SignUpPage = () => {
   const [postal, setPostal] = useState("");
   const [about, setAbout] = useState("");
   const [portrait, setPortrait] = useState(null);
+  const { REACT_APP_API_URL } = process.env;
   const navigate = useNavigate();
 
   const handleImageUpload = (e) => {
@@ -23,7 +24,6 @@ const SignUpPage = () => {
   };
 
   const signUpUser = async () => {
-    const { REACT_APP_API_URL } = process.env;
     const fd = new FormData();
     fd.append("firstName", firstName);
     fd.append("lastName", lastName);
@@ -35,7 +35,6 @@ const SignUpPage = () => {
     fd.append("postal", postal);
     fd.append("about", about);
     fd.append("portrait", portrait);
-    console.log(fd);
     try {
       await axios.post(`${REACT_APP_API_URL}/signup`, fd);
       console.log("POST sent");

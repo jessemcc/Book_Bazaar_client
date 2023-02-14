@@ -46,7 +46,7 @@ const PageHeader = ({ isLoggedIn, setIsLoggedIn }) => {
               <HiShoppingCart />
             </Link>
             <Link
-              to={`/authors/${authorId}`}
+              to={`/profile/${authorId}`}
               className="header__link header__author-name"
             >
               {authorName.toUpperCase()}
