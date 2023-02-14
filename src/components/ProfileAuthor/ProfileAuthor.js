@@ -56,10 +56,10 @@ const ProfileAuthor = ({ data }) => {
           <h3 className="profile-author__title">
             ABOUT: <span className="profile-author__content">{about}</span>
           </h3>
+          <Link to={`/upload/${id}`} className="profile-author__upload-book">
+            UPLOAD NEW BOOK
+          </Link>
         </div>
-        <Link to={`/upload/${id}`} className="profile-author__upload-book">
-          UPLOAD NEW BOOK
-        </Link>
       </article>
     </section>
   );
