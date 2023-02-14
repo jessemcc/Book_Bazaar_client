@@ -1,0 +1,38 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.profile {
+  width: 100%;
+  padding: 1.6rem;
+
+  @include tablet {
+    padding: 1.6rem 2.4rem;
+  }
+
+  @include desktop {
+    padding: 1.6rem 3.6rem;
+  }
+
+  &__container {
+    @include tablet {
+      max-width: 102rem;
+      margin: 0 auto;
+    }
+  }
+
+  &__books-title {
+    text-align: center;
+    margin: 3rem 0;
+  }
+
+  &__book-list {
+    @include tablet {
+      @include flex(row, space-between, space-between, wrap);
+      width: 100%;
+    }
+  }
+
+  &__about-container {
+    border-bottom: 1px solid $primary-color-1;
+  }
+}

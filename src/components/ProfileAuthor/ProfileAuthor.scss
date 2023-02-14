@@ -1,0 +1,64 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.profile-author {
+  &__container {
+    @include flex(column, space-between, center, nowrap);
+    width: 100%;
+    margin-bottom: 1.6rem;
+
+    @include tablet {
+      @include flex(row, space-evenly, center, wrap);
+      width: 100%;
+      max-width: 102rem;
+      padding-bottom: 2rem;
+    }
+  }
+
+  &__portrait {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 102rem;
+    border-radius: 0.6rem;
+
+    @include tablet {
+      width: 30rem;
+      margin: 0;
+    }
+  }
+
+  &__info-container {
+    @include tablet {
+      width: 30rem;
+    }
+  }
+
+  &__title {
+    margin: 1.6rem 0;
+  }
+
+  &__content {
+    color: $base-color-1;
+  }
+
+  &__upload-book {
+    @include flex(initial, center, center, initial);
+    @include size(100%, 4rem);
+    background-color: $primary-color-3;
+    border-radius: 0.6rem;
+    border: 2px solid $primary-color-1;
+    box-shadow: 0 0.3rem $primary-color-1;
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: $primary-color-1;
+
+    &:active {
+      box-shadow: none;
+      margin-top: 0.3rem;
+    }
+
+    @include tablet {
+      width: 30rem;
+    }
+  }
+}

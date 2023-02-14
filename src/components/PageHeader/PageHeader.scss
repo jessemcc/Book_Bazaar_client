@@ -94,7 +94,11 @@
 
   &__loggedin-container {
     @include flex(row, space-between, center, nowrap);
-    width: 30rem;
+    width: 100%;
+
+    @include tablet {
+      width: 32rem;
+    }
   }
 
   &__author-name {

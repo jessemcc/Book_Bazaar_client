@@ -10,6 +10,8 @@ import SingleAuthorPage from "./pages/SingleAuthorPage/SingleAuthorPage";
 import CheckoutPage from "./pages/CheckoutPage/CheckoutPage";
 import PageHeader from "./components/PageHeader/PageHeader";
 import SuccessPage from "./pages/SuccessPage/SuccessPage";
+import ProfilePage from "./pages/ProfilePage/ProfilePage";
+import UploadBook from "./pages/UploadBook/UploadBook";
 import "./App.scss";
 
 function App() {
@@ -29,6 +31,8 @@ function App() {
         <Route path="/books/:bookid" element={<SingleBookPage />} />
         <Route path="/authors" element={<AuthorsPage />} />
         <Route path="/authors/:authorid" element={<SingleAuthorPage />} />
+        <Route path="/profile/:authorid" element={<ProfilePage />} />
+        <Route path="/upload/:authorid" element={<UploadBook />} />
         <Route path="/checkout" element={<CheckoutPage />} />
         <Route path="/success" element={<SuccessPage />} />
       </Routes>
