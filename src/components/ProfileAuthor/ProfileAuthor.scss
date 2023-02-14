@@ -40,7 +40,7 @@
     color: $base-color-1;
   }
 
-  &__upload-book {
+  &__button {
     @include flex(initial, center, center, initial);
     @include size(100%, 4rem);
     background-color: $primary-color-3;
@@ -50,6 +50,11 @@
     font-weight: 700;
     font-size: 1.8rem;
     color: $primary-color-1;
+    margin-bottom: 1.6rem;
+
+    &--delete {
+      background-color: $secondary-color-2;
+    }
 
     &:active {
       box-shadow: none;
@@ -59,5 +64,14 @@
     @include tablet {
       width: 30rem;
     }
+  }
+  &__edit-delete-container {
+    @include flex(row, space-between, center, nowrap);
+    width: 100%;
+    margin-top: 6rem;
+  }
+
+  &__icon {
+    width: 4rem;
   }
 }

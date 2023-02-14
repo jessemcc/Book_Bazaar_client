@@ -37,7 +37,7 @@ const ProfilePage = () => {
     } catch (error) {
       console.error(error);
     }
-  }, [authorid]);
+  }, []);
 
   if (!currentAuthor || !currentAuthorBooks) {
     return <p>Loading...</p>;

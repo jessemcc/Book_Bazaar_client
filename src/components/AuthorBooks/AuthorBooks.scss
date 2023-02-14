@@ -68,4 +68,13 @@
       width: 100%;
     }
   }
+
+  &__edit-delete-container {
+    @include flex(row, space-between, center, nowrap);
+    width: 90%;
+  }
+
+  &__icon {
+    width: 2rem;
+  }
 }
