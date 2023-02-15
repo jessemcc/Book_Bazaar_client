@@ -1,12 +1,11 @@
 import { useState } from "react";
 import BookInfo from "../../components/BookInfo/BookInfo";
-import "./SingleBookPage.scss";
 
 const SingleBookPage = () => {
   const [currentBook, setCurrentBook] = useState(null);
 
   return (
-    <section className="book">
+    <section className="book page-container">
       <article className="book__container">
         <BookInfo currentBook={currentBook} setCurrentBook={setCurrentBook} />
       </article>

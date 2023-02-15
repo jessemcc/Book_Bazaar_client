@@ -45,7 +45,7 @@ const SingleAuthorPage = ({ isLoggedIn }) => {
 
   document.title = `Book Bazaar - ${currentAuthor[0].first_name} ${currentAuthor[0].last_name}`;
   return (
-    <section className="author">
+    <section className="author page-container">
       <article className="author__container">
         <article className="author__about-container">
           <AboutAuthor data={currentAuthor} />

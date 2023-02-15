@@ -18,16 +18,16 @@ const DeleteBookPage = () => {
   };
 
   return (
-    <section className="delete-book">
-      <article className="delete-book__container">
+    <section className="delete-book page-container">
+      <article className="delete-book__container box-container">
         <h1 className="delete-book__title">
           ARE YOU SURE YOU WISH TO DELETE YOUR BOOK? THIS ACTION IS IRREVERSIBLE
         </h1>
-        <div className="delete-book__buttons-container">
-          <button onClick={deleteBook} className="delete-account__button">
+        <div className="delete-book__buttons-container button-container">
+          <button onClick={deleteBook} className="delete-book__button button">
             DELETE
           </button>
-          <button onClick={toProfile} className="delete-book__button">
+          <button onClick={toProfile} className="delete-book__button button">
             CANCEL
           </button>
         </div>

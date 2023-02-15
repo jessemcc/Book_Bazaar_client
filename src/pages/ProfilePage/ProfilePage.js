@@ -45,7 +45,7 @@ const ProfilePage = () => {
 
   document.title = `Book Bazaar - ${currentAuthor[0].first_name} ${currentAuthor[0].last_name}`;
   return (
-    <section className="profile">
+    <section className="profile page-container">
       <article className="profile__container">
         <article className="profile__about-container">
           <ProfileAuthor data={currentAuthor} />

@@ -5,7 +5,7 @@ import FeaturedBookList from "../../components/FeaturedBookList/FeaturedBookList
 const HomePage = ({ isLoggedIn }) => {
   document.title = "Book Bazaar - Home";
   return (
-    <section className="home">
+    <section className="home page-container">
       <section className="home__container">
         <article className="home__featured-container">
           <h1 className="home__featured-title">FEATURED</h1>

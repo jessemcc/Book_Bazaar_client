@@ -117,8 +117,8 @@ const SignUpPage = () => {
   // SIGN UP COMPONENT ==================================================================
 
   return (
-    <section className="signup">
-      <section className="signup__container">
+    <section className="signup page-container">
+      <section className="box-container">
         <h1 className="signup__title">SIGN UP</h1>
         <form onSubmit={submitHandler} className="signup__form">
           <label name="firstName" className="signup__label">
@@ -258,11 +258,11 @@ const SignUpPage = () => {
               onChange={handleImageUpload}
             />
           </label>
-          <div className="signup__buttons">
-            <button type="submit" className="signup__button">
+          <div className="button-container">
+            <button type="submit" className="button">
               SIGN UP
             </button>
-            <Link to="/login" className="signup__button">
+            <Link to="/login" className="button">
               LOGIN
             </Link>
           </div>

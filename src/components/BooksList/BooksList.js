@@ -47,7 +47,7 @@ const BookList = () => {
       <Link
         to={`/books/${book.id}`}
         key={book.id}
-        className="book-card__container"
+        className="book-card__container box-container"
       >
         <article className="book-card__image-info-container">
           <img
