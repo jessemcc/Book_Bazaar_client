@@ -37,7 +37,7 @@ const ProfilePage = () => {
     } catch (error) {
       console.error(error);
     }
-  }, [authorid]);
+  }, []);
 
   if (!currentAuthor || !currentAuthorBooks) {
     return <p>Loading...</p>;
@@ -52,7 +52,10 @@ const ProfilePage = () => {
         </article>
         <h1 className="profile__books-title">{`Your books`}</h1>
         <article className="profile__book-list">
-          <AuthorBooks data={currentAuthorBooks} />
+          <AuthorBooks
+            data={currentAuthorBooks}
+            currentAuthor={currentAuthor[0]}
+          />
         </article>
       </article>
     </section>

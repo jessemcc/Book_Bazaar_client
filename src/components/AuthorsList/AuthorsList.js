@@ -48,10 +48,7 @@ const AuthorsList = () => {
               <span className="authors-list__author-info">{`${author.about}`}</span>
             </h3>
           </article>
-          <article
-            to="/books/:bookid"
-            className="authors-list__featured-book-container"
-          >
+          <article className="authors-list__featured-book-container">
             <h3 className="authors-list__featured-title">
               FEATURED BOOK:{" "}
               <span className="authors-list__book-title">
@@ -59,7 +56,7 @@ const AuthorsList = () => {
               </span>
             </h3>
             <Link
-              to="/books/:bookid"
+              to={`/books/${author.books[0].id}`}
               className="authors-list__featured-book-link"
             >
               <img
