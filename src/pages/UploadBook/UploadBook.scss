@@ -72,7 +72,7 @@
   }
 
   &__button-container {
-    @include size(100%, 5rem);
+    @include size(100%, 10rem);
 
     @include tablet {
       @include flex(row, center, center, initial);
@@ -90,6 +90,7 @@
     font-weight: 700;
     font-size: 1.8rem;
     color: $primary-color-1;
+    margin-bottom: 1.6rem;
 
     &:active {
       box-shadow: none;

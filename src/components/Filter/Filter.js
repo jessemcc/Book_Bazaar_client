@@ -40,9 +40,7 @@ const Filter = ({ handleFilter }) => {
           onChange={handleChange}
           value={selectedGenre}
         >
-          <option value="" disabled>
-            Select a genre
-          </option>
+          <option value="">all</option>
           {genres.map((genre) => (
             <option key={genre} value={genre}>
               {genre}
