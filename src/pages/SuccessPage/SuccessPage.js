@@ -18,7 +18,7 @@ const SuccessPage = () => {
     }
   }, []);
   return (
-    <section className="success-page">
+    <section className="success-page page-container">
       <article className="success-page__container">
         <h1 className="success-page__order-successful">
           YOUR ORDER WAS SUCCESSFULLY PLACED AND WILL ARIVE IN 5 TO 10 BUSINESS

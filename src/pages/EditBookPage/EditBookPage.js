@@ -75,8 +75,8 @@ const EditBookPage = () => {
   };
 
   return (
-    <section className="edit-book">
-      <article className="edit-book__container">
+    <section className="edit-book page-container">
+      <article className="edit-book__container box-container">
         <h1 className="edit-book__title">EDIT BOOK</h1>
         <form onSubmit={submitHandler} className="edit-book__form">
           <label name="bookName" className="edit-book__label">
@@ -179,11 +179,11 @@ const EditBookPage = () => {
               onChange={handleImageUpload}
             />
           </label>
-          <div className="edit-book__button-container">
-            <button type="submit" className="edit-book__button">
+          <div className="edit-book__button-container button-container">
+            <button type="submit" className="edit-book__button button">
               UPDATE BOOK
             </button>
-            <button onClick={toProfile} className="edit-book__button">
+            <button onClick={toProfile} className="edit-book__button button">
               CANCEL
             </button>
           </div>

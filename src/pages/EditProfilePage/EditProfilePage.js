@@ -122,8 +122,8 @@ const EditProfilePage = () => {
   };
 
   return (
-    <section className="edit-profile">
-      <article className="edit-profile__container">
+    <section className="edit-profile page-container">
+      <article className="box-container">
         <h1 className="edit-profile__title">EDIT PROFILE</h1>
         <form onSubmit={submitHandler} className="edit-profile__form">
           <label name="firstName" className="edit-profile__label">
@@ -264,11 +264,11 @@ const EditProfilePage = () => {
               onChange={handleImageUpload}
             />
           </label>
-          <div className="edit-profile__buttons-container">
-            <button className="edit-profile__button" type="submit">
+          <div className="edit-profile__buttons-container button-container">
+            <button className="button" type="submit">
               UPDATE PROFILE
             </button>
-            <button onClick={toProfile} className="edit-profile__button">
+            <button onClick={toProfile} className="button">
               CANCEL
             </button>
           </div>

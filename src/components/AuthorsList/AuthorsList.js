@@ -30,7 +30,7 @@ const AuthorsList = () => {
         key={author.id}
         className="authors-list"
       >
-        <section className="authors-list__container">
+        <section className="authors-list__container box-container">
           <article className="authors-list__author-portrait-container">
             <img
               src={REACT_APP_API_URL + author.portrait_path}

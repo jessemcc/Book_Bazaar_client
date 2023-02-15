@@ -4,9 +4,8 @@
 .about-author {
   &__container {
     @include flex(column, space-between, center, nowrap);
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
-    padding: 1.6rem;
     margin-bottom: 1.6rem;
     border-bottom: 1px solid $primary-color-1;
 

@@ -65,8 +65,8 @@ const UploadBook = () => {
   };
 
   return (
-    <section className="upload-book">
-      <article className="upload-book__container">
+    <section className="upload-book page-container">
+      <article className="box-container">
         <h1 className="upload-book__title">ADD NEW BOOK</h1>
         <form onSubmit={submitHandler} className="upload-book__form">
           <label name="bookName" className="upload-book__label">
@@ -169,11 +169,11 @@ const UploadBook = () => {
               onChange={handleImageUpload}
             />
           </label>
-          <div className="upload-book__button-container">
-            <button type="submit" className="upload-book__button">
+          <div className="button-container">
+            <button type="submit" className="button">
               UPLOAD BOOK
             </button>
-            <button onClick={toProfile} className="upload-book__button">
+            <button onClick={toProfile} className="button">
               CANCEL
             </button>
           </div>

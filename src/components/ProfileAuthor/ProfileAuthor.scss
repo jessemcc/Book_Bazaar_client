@@ -40,35 +40,16 @@
     color: $base-color-1;
   }
 
-  &__button {
-    @include flex(initial, center, center, initial);
-    @include size(100%, 4rem);
-    background-color: $primary-color-3;
-    border-radius: 0.6rem;
-    border: 2px solid $primary-color-1;
-    box-shadow: 0 0.3rem $primary-color-1;
-    font-weight: 700;
-    font-size: 1.8rem;
-    color: $primary-color-1;
-    margin-bottom: 1.6rem;
-
-    &--delete {
-      background-color: $secondary-color-2;
-    }
-
-    &:active {
-      box-shadow: none;
-      margin-top: 0.3rem;
-    }
-
-    @include tablet {
-      width: 30rem;
-    }
-  }
   &__edit-delete-container {
     @include flex(row, space-between, center, nowrap);
     width: 50%;
-    margin: 6rem auto 0 auto;
+    margin: 4rem auto 0 auto;
+
+    @include tablet {
+      width: 25%;
+      margin: 0;
+      padding-top: 3rem;
+    }
   }
 
   &__icon {

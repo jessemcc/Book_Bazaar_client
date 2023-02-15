@@ -11,7 +11,7 @@ const AuthorBooks = ({ data }) => {
   const booksList = data.map((book) => {
     return (
       <Link to={`/books/${book.id}`} className="author-books" key={book.id}>
-        <article className="author-books__container">
+        <article className="author-books__container box-container">
           <img
             src={REACT_APP_API_URL + book.cover_path}
             alt="Book Cover"

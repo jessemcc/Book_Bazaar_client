@@ -48,7 +48,7 @@ const BookInfo = ({ currentBook, setCurrentBook }) => {
 
   return (
     <section className="book-info">
-      <article className="book-info__container">
+      <article className="book-info__container box-container">
         <img
           src={REACT_APP_API_URL + currentBook[0].cover_path}
           alt="Book Cover"

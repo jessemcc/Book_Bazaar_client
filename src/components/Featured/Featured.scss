@@ -2,15 +2,7 @@
 @use "../../styles/partials/variables" as *;
 
 .featured-books {
-  padding: 1.6rem;
-  margin: 2rem 0;
   width: 100%;
-  border: 1px solid $primary-color-1;
-  border-radius: 6px;
-  box-shadow: 0.5rem 0.5rem 0.75rem rgba(0, 0, 0, 0.2);
-  text-decoration: none;
-  color: $base-color-1;
-  background-color: $secondary-color-2;
 
   @include tablet {
     @include flex(column, space-between, center, initial);

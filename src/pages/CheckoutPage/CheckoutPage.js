@@ -104,7 +104,7 @@ const CheckoutPage = () => {
   };
 
   return (
-    <section className="checkout">
+    <section className="checkout page-container">
       <h1 className="checkout__title">CHECKOUT</h1>
       <article className="checkout__container">
         <h2 className="checkout__title">YOUR CART</h2>

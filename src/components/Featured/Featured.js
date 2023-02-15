@@ -28,7 +28,11 @@ const Featured = () => {
     .splice(0, 3)
     .map((book) => {
       return (
-        <Link to={`/books/${book.id}`} key={book.id} className="featured-books">
+        <Link
+          to={`/books/${book.id}`}
+          key={book.id}
+          className="featured-books box-container"
+        >
           <h3 className="featured-books__featured-title">{book.book_name}</h3>
           <div className="featured-books__book-cover-container">
             <img
