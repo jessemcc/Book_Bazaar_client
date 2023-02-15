@@ -76,4 +76,24 @@
       padding-left: 1.6rem;
     }
   }
+
+  &__no-books-container {
+    width: 90%;
+    margin: 4rem auto;
+    border: 1px solid $primary-color-1;
+    border-radius: 0.6rem;
+    box-shadow: 0.5rem 0.5rem 0.75rem rgba(0, 0, 0, 0.2);
+    padding: 1.6rem;
+    margin-bottom: 1.6rem;
+    background-color: $secondary-color-2;
+
+    @include tablet {
+      width: 100%;
+      max-width: 50rem;
+    }
+  }
+
+  &__no-books {
+    text-align: center;
+  }
 }

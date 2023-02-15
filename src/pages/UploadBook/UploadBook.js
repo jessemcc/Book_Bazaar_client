@@ -15,6 +15,7 @@ const UploadBook = () => {
   const { REACT_APP_API_URL } = process.env;
   const { authorid } = useParams();
   const navigate = useNavigate();
+  document.title = "Book Bazaar - Upload Book";
 
   const handleImageUpload = (e) => {
     setCover(e.target.files[0]);
