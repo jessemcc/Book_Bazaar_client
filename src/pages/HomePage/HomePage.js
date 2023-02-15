@@ -9,6 +9,11 @@ const HomePage = ({ isLoggedIn }) => {
       <section className="home__container">
         <article className="home__featured-container">
           <h1 className="home__featured-title">FEATURED</h1>
+          <h3 className="home__featured-about">
+            Discover the next big thing in literature at Book Bazaar! Browse new
+            and exciting books from up-and-coming authors, and support
+            independent writers by buying directly from the source.
+          </h3>
           <article className="home__featured-books">
             <Featured />
           </article>

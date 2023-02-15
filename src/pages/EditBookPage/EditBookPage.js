@@ -15,6 +15,7 @@ const EditBookPage = () => {
   const { REACT_APP_API_URL } = process.env;
   const { authorid, bookid } = useParams();
   const navigate = useNavigate();
+  document.title = "Book Bazaar - Edit Book";
 
   const toProfile = () => {
     navigate(`/profile/${authorid}`);

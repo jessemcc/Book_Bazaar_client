@@ -6,6 +6,7 @@ const DeleteBookPage = () => {
   const { REACT_APP_API_URL } = process.env;
   const { authorid, bookid } = useParams();
   const navigate = useNavigate();
+  document.title = "Book Bazaar - Delete Book";
 
   const deleteBook = async () => {
     await axios.delete(`${REACT_APP_API_URL}/delete/${authorid}/${bookid}`);

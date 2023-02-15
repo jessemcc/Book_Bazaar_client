@@ -73,10 +73,12 @@
 
   &__button-container {
     @include size(100%, 10rem);
+    max-width: 70rem;
 
     @include tablet {
-      @include flex(row, center, center, initial);
-      margin-top: 1.6rem;
+      @include flex(row, space-between, center, initial);
+      height: 5rem;
+      margin: 1.6rem auto;
     }
   }
 
@@ -94,11 +96,12 @@
 
     &:active {
       box-shadow: none;
-      margin: 0.3rem 0.3rem 0 0;
+      margin-top: 1.9rem;
     }
 
     @include tablet {
       width: 30rem;
+      margin-bottom: 0;
     }
   }
 }

@@ -6,6 +6,7 @@ const DeleteAccount = ({ setIsLoggedIn }) => {
   const { REACT_APP_API_URL } = process.env;
   const { authorid } = useParams();
   const navigate = useNavigate();
+  document.title = "Book Bazaar - Delete Account";
 
   const deleteAccount = async () => {
     await axios.delete(`${REACT_APP_API_URL}/delete/${authorid}`);
