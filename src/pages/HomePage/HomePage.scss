@@ -2,6 +2,13 @@
 @use "../../styles/partials/variables" as *;
 
 .home {
+  &__container {
+    @include tablet {
+      max-width: 102rem;
+      margin: 0 auto;
+    }
+  }
+
   &__featured-container {
     width: 100%;
     text-align: center;
