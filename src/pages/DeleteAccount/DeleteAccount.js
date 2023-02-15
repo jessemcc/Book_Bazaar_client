@@ -13,6 +13,11 @@ const DeleteAccount = ({ setIsLoggedIn }) => {
     localStorage.removeItem("jwtToken");
     setIsLoggedIn(false);
   };
+
+  const toProfile = () => {
+    navigate(`/profile/${authorid}`);
+  };
+
   return (
     <section className="delete-account">
       <article className="delete-account__container">
@@ -24,7 +29,9 @@ const DeleteAccount = ({ setIsLoggedIn }) => {
           <button onClick={deleteAccount} className="delete-account__button">
             DELETE
           </button>
-          <button className="delete-account__button">CANCEL</button>
+          <button onClick={toProfile} className="delete-account__button">
+            CANCEL
+          </button>
         </div>
       </article>
     </section>

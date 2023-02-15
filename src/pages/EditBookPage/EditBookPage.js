@@ -16,6 +16,10 @@ const EditBookPage = () => {
   const { authorid, bookid } = useParams();
   const navigate = useNavigate();
 
+  const toProfile = () => {
+    navigate(`/profile/${authorid}`);
+  };
+
   const handleImageUpload = (e) => {
     setCover(e.target.files[0]);
   };
@@ -72,6 +76,7 @@ const EditBookPage = () => {
   return (
     <section className="edit-book">
       <article className="edit-book__container">
+        <h1 className="edit-book__title">EDIT BOOK</h1>
         <form onSubmit={submitHandler} className="edit-book__form">
           <label name="bookName" className="edit-book__label">
             BOOK NAME
@@ -176,6 +181,9 @@ const EditBookPage = () => {
           <div className="edit-book__button-container">
             <button type="submit" className="edit-book__button">
               UPDATE BOOK
+            </button>
+            <button onClick={toProfile} className="edit-book__button">
+              CANCEL
             </button>
           </div>
         </form>

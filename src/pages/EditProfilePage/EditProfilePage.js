@@ -20,6 +20,10 @@ const EditProfilePage = () => {
   const navigate = useNavigate();
   const { authorid } = useParams();
 
+  const toProfile = () => {
+    navigate(`/profile/${authorid}`);
+  };
+
   const handleImageUpload = (e) => {
     setPortrait(e.target.files[0]);
   };
@@ -120,6 +124,7 @@ const EditProfilePage = () => {
   return (
     <section className="edit-profile">
       <article className="edit-profile__container">
+        <h1 className="edit-profile__title">EDIT PROFILE</h1>
         <form onSubmit={submitHandler} className="edit-profile__form">
           <label name="firstName" className="edit-profile__label">
             FIRST NAME
@@ -259,9 +264,14 @@ const EditProfilePage = () => {
               onChange={handleImageUpload}
             />
           </label>
-          <button className="edit-profile__button" type="submit">
-            UPDATE PROFILE
-          </button>
+          <div className="edit-profile__buttons-container">
+            <button className="edit-profile__button" type="submit">
+              UPDATE PROFILE
+            </button>
+            <button onClick={toProfile} className="edit-profile__button">
+              CANCEL
+            </button>
+          </div>
         </form>
       </article>
     </section>

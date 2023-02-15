@@ -34,7 +34,10 @@ function App() {
         <Route path="/books" element={<BooksPage />} />
         <Route path="/books/:bookid" element={<SingleBookPage />} />
         <Route path="/authors" element={<AuthorsPage />} />
-        <Route path="/authors/:authorid" element={<SingleAuthorPage />} />
+        <Route
+          path="/authors/:authorid"
+          element={<SingleAuthorPage isLoggedIn={isLoggedIn} />}
+        />
         <Route path="/profile/:authorid" element={<ProfilePage />} />
         <Route path="/upload/:authorid" element={<UploadBook />} />
         <Route path="/checkout" element={<CheckoutPage />} />

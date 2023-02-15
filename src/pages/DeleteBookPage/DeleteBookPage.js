@@ -11,6 +11,11 @@ const DeleteBookPage = () => {
     await axios.delete(`${REACT_APP_API_URL}/delete/${authorid}/${bookid}`);
     navigate(`/profile/${authorid}`);
   };
+
+  const toProfile = () => {
+    navigate(`/profile/${authorid}`);
+  };
+
   return (
     <section className="delete-book">
       <article className="delete-book__container">
@@ -21,7 +26,9 @@ const DeleteBookPage = () => {
           <button onClick={deleteBook} className="delete-account__button">
             DELETE
           </button>
-          <button className="delete-book__button">CANCEL</button>
+          <button onClick={toProfile} className="delete-book__button">
+            CANCEL
+          </button>
         </div>
       </article>
     </section>
