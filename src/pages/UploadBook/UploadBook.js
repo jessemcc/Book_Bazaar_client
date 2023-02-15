@@ -15,6 +15,11 @@ const UploadBook = () => {
   const { REACT_APP_API_URL } = process.env;
   const { authorid } = useParams();
   const navigate = useNavigate();
+  document.title = "Book Bazaar - Upload Book";
+
+  const toProfile = () => {
+    navigate(`/profile/${authorid}`);
+  };
 
   const handleImageUpload = (e) => {
     setCover(e.target.files[0]);
@@ -167,6 +172,9 @@ const UploadBook = () => {
           <div className="upload-book__button-container">
             <button type="submit" className="upload-book__button">
               UPLOAD BOOK
+            </button>
+            <button onClick={toProfile} className="upload-book__button">
+              CANCEL
             </button>
           </div>
         </form>

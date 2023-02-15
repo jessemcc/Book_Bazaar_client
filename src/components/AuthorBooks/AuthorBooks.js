@@ -3,7 +3,7 @@ import { Link, useLocation, useParams } from "react-router-dom";
 import deleteIcon from "../../assets/icons/delete-icon.png";
 import editIcon from "../../assets/icons/edit-icon.png";
 
-const AuthorBooks = ({ data, isLoggedIn }) => {
+const AuthorBooks = ({ data }) => {
   const { REACT_APP_API_URL } = process.env;
   const { authorid } = useParams();
   const location = useLocation();
