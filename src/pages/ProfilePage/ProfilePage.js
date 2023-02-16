@@ -23,7 +23,7 @@ const ProfilePage = () => {
     } catch (error) {
       console.error(error);
     }
-  }, [authorid]);
+  }, [currentAuthor]);
 
   useEffect(() => {
     try {
@@ -37,7 +37,7 @@ const ProfilePage = () => {
     } catch (error) {
       console.error(error);
     }
-  }, [authorid]);
+  }, [currentAuthorBooks]);
 
   if (!currentAuthor || !currentAuthorBooks) {
     return <p>Loading...</p>;
@@ -45,14 +45,17 @@ const ProfilePage = () => {
 
   document.title = `Book Bazaar - ${currentAuthor[0].first_name} ${currentAuthor[0].last_name}`;
   return (
-    <section className="profile">
+    <section className="profile page-container">
       <article className="profile__container">
         <article className="profile__about-container">
           <ProfileAuthor data={currentAuthor} />
         </article>
         <h1 className="profile__books-title">{`Your books`}</h1>
         <article className="profile__book-list">
-          <AuthorBooks data={currentAuthorBooks} />
+          <AuthorBooks
+            data={currentAuthorBooks}
+            currentAuthor={currentAuthor[0]}
+          />
         </article>
       </article>
     </section>

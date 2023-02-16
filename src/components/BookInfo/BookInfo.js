@@ -1,11 +1,12 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import "./BookInfo.scss";
 
 const BookInfo = ({ currentBook, setCurrentBook }) => {
   const { bookid } = useParams();
   const { REACT_APP_API_URL } = process.env;
+  const navigate = useNavigate();
 
   useEffect(() => {
     try {
@@ -41,6 +42,7 @@ const BookInfo = ({ currentBook, setCurrentBook }) => {
         cover_path: currentBook[0].cover_path,
       });
       alert(`${currentBook[0].book_name} was successfully added to your cart!`);
+      navigate(-1);
     } catch (error) {
       console.error(error);
     }
@@ -48,7 +50,7 @@ const BookInfo = ({ currentBook, setCurrentBook }) => {
 
   return (
     <section className="book-info">
-      <article className="book-info__container">
+      <article className="book-info__container box-container">
         <img
           src={REACT_APP_API_URL + currentBook[0].cover_path}
           alt="Book Cover"

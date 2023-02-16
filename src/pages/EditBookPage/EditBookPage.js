@@ -1,9 +1,9 @@
 import axios from "axios";
-import { useState } from "react";
-import { useNavigate, useParams } from "react-router";
-import "./UploadBook.scss";
+import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import "./EditBookPage.scss";
 
-const UploadBook = () => {
+const EditBookPage = () => {
   const [bookName, setBookName] = useState("");
   const [description, setDescription] = useState("");
   const [language, setLanguage] = useState("");
@@ -13,9 +13,9 @@ const UploadBook = () => {
   const [pageNumbers, setPageNumbers] = useState("");
   const [cover, setCover] = useState(null);
   const { REACT_APP_API_URL } = process.env;
-  const { authorid } = useParams();
+  const { authorid, bookid } = useParams();
   const navigate = useNavigate();
-  document.title = "Book Bazaar - Upload Book";
+  document.title = "Book Bazaar - Edit Book";
 
   const toProfile = () => {
     navigate(`/profile/${authorid}`);
@@ -25,7 +25,27 @@ const UploadBook = () => {
     setCover(e.target.files[0]);
   };
 
-  const addNewBook = async () => {
+  useEffect(() => {
+    try {
+      const getBookInfo = async () => {
+        const { data } = await axios.get(
+          `${REACT_APP_API_URL}/books/${bookid}`
+        );
+        setBookName(data[0].book_name);
+        setDescription(data[0].description);
+        setLanguage(data[0].language);
+        setGenre(data[0].genre);
+        setPrice(data[0].price);
+        setStock(data[0].stock);
+        setPageNumbers(data[0].page_numbers);
+      };
+      getBookInfo();
+    } catch (error) {
+      console.error(error);
+    }
+  }, []);
+
+  const updateBook = async () => {
     const fd = new FormData();
     fd.append("author_id", authorid);
     fd.append("book_name", bookName);
@@ -37,7 +57,10 @@ const UploadBook = () => {
     fd.append("page_numbers", pageNumbers);
     fd.append("cover", cover);
     try {
-      await axios.post(`${REACT_APP_API_URL}/authors/${authorid}`, fd);
+      await axios.patch(
+        `${REACT_APP_API_URL}/authors/${authorid}/${bookid}`,
+        fd
+      );
       console.log("Book has successfully been uploaded");
       alert("Book has successfully been uploaded");
     } catch (error) {
@@ -47,34 +70,21 @@ const UploadBook = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    if (
-      !bookName ||
-      !description ||
-      !language ||
-      !genre ||
-      !price ||
-      !stock ||
-      !pageNumbers ||
-      !cover
-    ) {
-      alert("Please fill out all required fields");
-      return;
-    }
-    addNewBook();
+    updateBook();
     navigate(`/profile/${authorid}`);
   };
 
   return (
-    <section className="upload-book page-container">
-      <article className="box-container">
-        <h1 className="upload-book__title">ADD NEW BOOK</h1>
-        <form onSubmit={submitHandler} className="upload-book__form">
-          <label name="bookName" className="upload-book__label">
+    <section className="edit-book page-container">
+      <article className="edit-book__container box-container">
+        <h1 className="edit-book__title">EDIT BOOK</h1>
+        <form onSubmit={submitHandler} className="edit-book__form">
+          <label name="bookName" className="edit-book__label">
             BOOK NAME
             <input
               type="text"
               name="bookName"
-              className="upload-book__input"
+              className="edit-book__input"
               placeholder="Insert Book Name..."
               value={bookName}
               onChange={(e) => {
@@ -82,11 +92,11 @@ const UploadBook = () => {
               }}
             />
           </label>
-          <label name="description" className="upload-book__textarea-label">
+          <label name="description" className="edit-book__textarea-label">
             DESCRIPTION
             <textarea
               name="bookName"
-              className="upload-book__textarea"
+              className="edit-book__textarea"
               placeholder="Insert Book Description..."
               value={description}
               onChange={(e) => {
@@ -94,12 +104,12 @@ const UploadBook = () => {
               }}
             />
           </label>
-          <label name="language" className="upload-book__label">
+          <label name="language" className="edit-book__label">
             LANGUAGE
             <input
               type="text"
               name="language"
-              className="upload-book__input"
+              className="edit-book__input"
               placeholder="Insert Book Language..."
               value={language}
               onChange={(e) => {
@@ -107,12 +117,12 @@ const UploadBook = () => {
               }}
             />
           </label>
-          <label name="genre" className="upload-book__label">
+          <label name="genre" className="edit-book__label">
             GENRE
             <input
               type="text"
               name="genre"
-              className="upload-book__input"
+              className="edit-book__input"
               placeholder="Insert Book Genre..."
               value={genre}
               onChange={(e) => {
@@ -120,13 +130,13 @@ const UploadBook = () => {
               }}
             />
           </label>
-          <label name="price" className="upload-book__label">
+          <label name="price" className="edit-book__label">
             PRICE
             <input
               type="number"
               step=".01"
               name="price"
-              className="upload-book__input"
+              className="edit-book__input"
               placeholder="Insert Book Price..."
               value={price}
               onChange={(e) => {
@@ -134,12 +144,12 @@ const UploadBook = () => {
               }}
             />
           </label>
-          <label name="stock" className="upload-book__label">
+          <label name="stock" className="edit-book__label">
             STOCK
             <input
               type="number"
               name="stock"
-              className="upload-book__input"
+              className="edit-book__input"
               placeholder="Insert Book Stock..."
               value={stock}
               onChange={(e) => {
@@ -147,12 +157,12 @@ const UploadBook = () => {
               }}
             />
           </label>
-          <label name="pageNumbers" className="upload-book__label">
+          <label name="pageNumbers" className="edit-book__label">
             PAGE NUMBERS
             <input
               type="number"
               name="pageNumbers"
-              className="upload-book__input"
+              className="edit-book__input"
               placeholder="Insert Book Page Number..."
               value={pageNumbers}
               onChange={(e) => {
@@ -160,20 +170,20 @@ const UploadBook = () => {
               }}
             />
           </label>
-          <label name="cover" className="upload-book__label">
+          <label name="cover" className="edit-book__label">
             BOOK COVER
             <input
               type="file"
               name="cover"
-              className="upload-book__cover-image"
+              className="edit-book__cover-image"
               onChange={handleImageUpload}
             />
           </label>
-          <div className="button-container">
-            <button type="submit" className="button">
-              UPLOAD BOOK
+          <div className="edit-book__button-container button-container">
+            <button type="submit" className="edit-book__button button">
+              UPDATE BOOK
             </button>
-            <button onClick={toProfile} className="button">
+            <button onClick={toProfile} className="edit-book__button button">
               CANCEL
             </button>
           </div>
@@ -183,4 +193,4 @@ const UploadBook = () => {
   );
 };
 
-export default UploadBook;
+export default EditBookPage;

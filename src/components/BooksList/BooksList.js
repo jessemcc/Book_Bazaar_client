@@ -23,6 +23,9 @@ const BookList = () => {
           return randomBooks;
         } else {
           setBooksList(data.sort((a, b) => 0.5 - Math.random()).splice(0, 10));
+          setFilteredBooks(
+            data.sort((a, b) => 0.5 - Math.random()).splice(0, 10)
+          );
         }
       };
       getBooksList();
@@ -39,14 +42,12 @@ const BookList = () => {
     return <p>Loading...</p>;
   }
 
-  let booksToDisplay = filteredBooks.length > 0 ? filteredBooks : booksList;
-
-  const books = booksToDisplay.map((book) => {
+  const books = filteredBooks.map((book) => {
     return (
       <Link
         to={`/books/${book.id}`}
         key={book.id}
-        className="book-card__container"
+        className="book-card__container box-container"
       >
         <article className="book-card__image-info-container">
           <img
@@ -89,6 +90,13 @@ const BookList = () => {
       <article className="book-card__filter">
         <Filter handleFilter={handleFilter} />
       </article>
+      {filteredBooks.length === 0 && (
+        <article className="book-card__no-books-container">
+          <h1 className="book-card__no-books">
+            There are no books of this genre at the moment
+          </h1>
+        </article>
+      )}
       {books}
     </section>
   );

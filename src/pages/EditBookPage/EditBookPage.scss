@@ -1,7 +1,7 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/variables" as *;
 
-.upload-book {
+.edit-book {
   &__form {
     @include flex(row, space-between, center, wrap);
   }
@@ -21,7 +21,7 @@
   }
 
   &__textarea-label {
-    @extend .upload-book__label;
+    @extend .edit-book__label;
 
     @include tablet {
       width: 100%;
@@ -38,7 +38,7 @@
   }
 
   &__textarea {
-    @extend .upload-book__input;
+    @extend .edit-book__input;
     height: 40rem;
     padding-top: 1rem;
     resize: none;

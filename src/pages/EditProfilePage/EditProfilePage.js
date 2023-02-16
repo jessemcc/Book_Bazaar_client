@@ -1,10 +1,10 @@
-import "./SignUpPage.scss";
-import { useState } from "react";
 import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import "./EditProfilePage.scss";
 
-const SignUpPage = () => {
-  document.title = "Book Bazaar - Sign Up";
+const EditProfilePage = () => {
+  document.title = "Book Bazaar - Edit User";
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [password, setPassword] = useState("");
@@ -18,27 +18,55 @@ const SignUpPage = () => {
   const [portrait, setPortrait] = useState(null);
   const { REACT_APP_API_URL } = process.env;
   const navigate = useNavigate();
+  const { authorid } = useParams();
+
+  const toProfile = () => {
+    navigate(`/profile/${authorid}`);
+  };
 
   const handleImageUpload = (e) => {
     setPortrait(e.target.files[0]);
   };
 
-  const signUpUser = async () => {
+  useEffect(() => {
+    try {
+      const getUserInfo = async () => {
+        const { data } = await axios.get(
+          `${REACT_APP_API_URL}/authors/${authorid}`
+        );
+        setFirstName(data[0].first_name);
+        setLastName(data[0].last_name);
+        setPassword(data[0].password);
+        setConfirmPassword(data[0].password);
+        setEmail(data[0].email);
+        setAddress(data[0].address);
+        setCity(data[0].city);
+        setProvince(data[0].province);
+        setPostal(data[0].postal_code);
+        setAbout(data[0].about);
+      };
+      getUserInfo();
+    } catch (error) {
+      console.error(error);
+    }
+  }, []);
+
+  const updateUser = async () => {
     const fd = new FormData();
-    fd.append("firstName", firstName);
-    fd.append("lastName", lastName);
+    fd.append("first_name", firstName);
+    fd.append("last_name", lastName);
     fd.append("password", password);
     fd.append("email", email);
     fd.append("address", address);
     fd.append("city", city);
     fd.append("province", province);
-    fd.append("postal", postal);
+    fd.append("postal_code", postal);
     fd.append("about", about);
     fd.append("portrait", portrait);
     try {
-      await axios.post(`${REACT_APP_API_URL}/signup`, fd);
-      console.log("POST sent");
-      alert("You have successfully created your account");
+      await axios.patch(`${REACT_APP_API_URL}/authors/${authorid}`, fd);
+      console.log("Updated User");
+      alert("You have successfully edited your account");
     } catch (error) {
       console.error(`YOU MESSED UP: ${error}`);
     }
@@ -73,14 +101,6 @@ const SignUpPage = () => {
     "NU",
   ];
 
-  const handleNameChange = (e, func) => {
-    const name = e.target.value;
-    const onlyLetters = /^[a-zA-Z]+$/;
-    if (onlyLetters.test(name)) {
-      func(name);
-    }
-  };
-
   const submitHandler = (e) => {
     e.preventDefault();
     if (!postalCodeRegex.test(postal)) {
@@ -97,62 +117,47 @@ const SignUpPage = () => {
       alert("Passwords do not match");
       return;
     }
-    if (
-      !firstName ||
-      !lastName ||
-      !password ||
-      !email ||
-      !address ||
-      !city ||
-      !about ||
-      !portrait
-    ) {
-      alert("Please fill out all required fields");
-      return;
-    }
-    signUpUser();
-    navigate("/login");
+    updateUser();
+    navigate(`/profile/${authorid}`);
   };
 
-  // SIGN UP COMPONENT ==================================================================
-
   return (
-    <section className="signup page-container">
-      <section className="box-container">
-        <h1 className="signup__title">SIGN UP</h1>
-        <form onSubmit={submitHandler} className="signup__form">
-          <label name="firstName" className="signup__label">
+    <section className="edit-profile page-container">
+      <article className="box-container">
+        <h1 className="edit-profile__title">EDIT PROFILE</h1>
+        <form onSubmit={submitHandler} className="edit-profile__form">
+          <label name="firstName" className="edit-profile__label">
             FIRST NAME
             <input
               type="text"
               name="firstName"
-              className="signup__input"
+              className="edit-profile__input"
               placeholder="Insert First Name..."
               value={firstName}
               onChange={(e) => {
-                handleNameChange(e, setFirstName);
+                setFirstName(e.target.value);
               }}
             />
           </label>
-          <label name="lastName" className="signup__label">
+          <label name="lastName" className="edit-profile__label">
             LAST NAME
             <input
               type="text"
               name="lastName"
-              className="signup__input"
+              className="edit-profile__input"
               placeholder="Insert Last Name..."
               value={lastName}
               onChange={(e) => {
-                handleNameChange(e, setLastName);
+                setLastName(e.target.value);
               }}
             />
           </label>
-          <label name="password" className="signup__label">
+          <label name="password" className="edit-profile__label">
             PASSWORD
             <input
               type="password"
               name="password"
-              className="signup__input"
+              className="edit-profile__input"
               placeholder="Insert Password..."
               value={password}
               onChange={(e) => {
@@ -160,24 +165,25 @@ const SignUpPage = () => {
               }}
             />
           </label>
-          <label name="confirm-password" className="signup__label">
+          <label name="confirm-password" className="edit-profile__label">
             CONFIRM PASSWORD
             <input
               type="password"
               name="confirm-password"
-              className="signup__input"
+              className="edit-profile__input"
               placeholder="Insert Password..."
+              value={confirmPassword}
               onChange={(e) => {
                 setConfirmPassword(e.target.value);
               }}
             />
           </label>
-          <label name="email" className="signup__label">
+          <label name="email" className="edit-profile__label">
             EMAIL
             <input
               type="email"
               name="email"
-              className="signup__input"
+              className="edit-profile__input"
               placeholder="Insert Email..."
               value={email}
               onChange={(e) => {
@@ -185,12 +191,12 @@ const SignUpPage = () => {
               }}
             />
           </label>
-          <label name="address" className="signup__label">
+          <label name="address" className="edit-profile__label">
             STREET ADDRESS
             <input
               type="text"
               name="address"
-              className="signup__input"
+              className="edit-profile__input"
               placeholder="Insert Address..."
               value={address}
               onChange={(e) => {
@@ -198,12 +204,12 @@ const SignUpPage = () => {
               }}
             />
           </label>
-          <label name="city" className="signup__label">
+          <label name="city" className="edit-profile__label">
             CITY
             <input
               type="text"
               name="city"
-              className="signup__input"
+              className="edit-profile__input"
               placeholder="Insert City..."
               value={city}
               onChange={(e) => {
@@ -211,12 +217,12 @@ const SignUpPage = () => {
               }}
             />
           </label>
-          <label name="province" className="signup__label">
+          <label name="province" className="edit-profile__label">
             PROVINCE
             <input
               type="text"
               name="province"
-              className="signup__input"
+              className="edit-profile__input"
               placeholder="Insert Province..."
               value={province}
               onChange={(e) => {
@@ -224,12 +230,12 @@ const SignUpPage = () => {
               }}
             />
           </label>
-          <label name="postal" className="signup__label">
+          <label name="postal" className="edit-profile__label">
             POSTAL CODE
             <input
               type="text"
               name="postal"
-              className="signup__input"
+              className="edit-profile__input"
               placeholder="Insert Postal Code..."
               value={postal}
               onChange={(e) => {
@@ -237,11 +243,11 @@ const SignUpPage = () => {
               }}
             />
           </label>
-          <label name="about" className="signup__textarea-label">
+          <label name="about" className="edit-profile__textarea-label">
             ABOUT ME
             <textarea
               name="about"
-              className="signup__textarea"
+              className="edit-profile__textarea"
               placeholder="Tell us about yourself..."
               value={about}
               onChange={(e) => {
@@ -249,27 +255,27 @@ const SignUpPage = () => {
               }}
             />
           </label>
-          <label name="portrait" className="signup__label">
+          <label name="portrait" className="edit-profile__label">
             UPLOAD DISPLAY PICTURE
             <input
               type="file"
               name="portrait"
-              className="signup__upload"
+              className="edit-profile__upload"
               onChange={handleImageUpload}
             />
           </label>
-          <div className="button-container">
-            <button type="submit" className="button">
-              SIGN UP
+          <div className="edit-profile__buttons-container button-container">
+            <button className="button" type="submit">
+              UPDATE PROFILE
             </button>
-            <Link to="/login" className="button">
-              LOGIN
-            </Link>
+            <button onClick={toProfile} className="button">
+              CANCEL
+            </button>
           </div>
         </form>
-      </section>
+      </article>
     </section>
   );
 };
 
-export default SignUpPage;
+export default EditProfilePage;

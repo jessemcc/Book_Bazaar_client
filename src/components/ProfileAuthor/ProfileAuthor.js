@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import "./ProfileAuthor.scss";
+import deleteIcon from "../../assets/icons/delete-icon.png";
+import editIcon from "../../assets/icons/edit-icon.png";
 
 const ProfileAuthor = ({ data }) => {
   const {
@@ -56,9 +58,25 @@ const ProfileAuthor = ({ data }) => {
           <h3 className="profile-author__title">
             ABOUT: <span className="profile-author__content">{about}</span>
           </h3>
-          <Link to={`/upload/${id}`} className="profile-author__upload-book">
+          <Link to={`/upload/${id}`} className="profile-author__button button">
             UPLOAD NEW BOOK
           </Link>
+          <div className="profile-author__edit-delete-container">
+            <Link to={`/profile/${id}/edit/`} className="profile-author__link">
+              <img
+                src={editIcon}
+                alt="edit icon"
+                className="profile-author__icon"
+              />
+            </Link>
+            <Link to={`/profile/${id}/delete`} className="profile-author__link">
+              <img
+                src={deleteIcon}
+                alt="delete icon"
+                className="profile-author__icon"
+              />
+            </Link>
+          </div>
         </div>
       </article>
     </section>
