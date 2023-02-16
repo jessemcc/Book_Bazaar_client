@@ -8,12 +8,13 @@ const BookList = () => {
   const [booksList, setBooksList] = useState([]);
   const [filteredBooks, setFilteredBooks] = useState([]);
   const [selectedGenre, setSelectedGenre] = useState("");
-  const { REACT_APP_API_URL } = process.env;
 
   useEffect(() => {
     try {
       const getBooksList = async () => {
-        const { data } = await axios.get(`${REACT_APP_API_URL}/books`);
+        const { data } = await axios.get(
+          `${process.env.REACT_APP_API_URL}/books`
+        );
         if (selectedGenre) {
           let randomBooks = data.filter(
             (book) => book.genre.toLowerCase() === selectedGenre
@@ -51,7 +52,7 @@ const BookList = () => {
       >
         <article className="book-card__image-info-container">
           <img
-            src={REACT_APP_API_URL + book.cover_path}
+            src={process.env.REACT_APP_API_URL + book.cover_path}
             alt="book cover"
             className="book-card__book-cover"
           />

@@ -16,7 +16,6 @@ const EditProfilePage = () => {
   const [postal, setPostal] = useState("");
   const [about, setAbout] = useState("");
   const [portrait, setPortrait] = useState(null);
-  const { REACT_APP_API_URL } = process.env;
   const navigate = useNavigate();
   const { authorid } = useParams();
 
@@ -32,7 +31,7 @@ const EditProfilePage = () => {
     try {
       const getUserInfo = async () => {
         const { data } = await axios.get(
-          `${REACT_APP_API_URL}/authors/${authorid}`
+          `${process.env.REACT_APP_API_URL}/authors/${authorid}`
         );
         setFirstName(data[0].first_name);
         setLastName(data[0].last_name);
@@ -49,7 +48,7 @@ const EditProfilePage = () => {
     } catch (error) {
       console.error(error);
     }
-  }, []);
+  }, [authorid]);
 
   const updateUser = async () => {
     const fd = new FormData();
@@ -64,7 +63,10 @@ const EditProfilePage = () => {
     fd.append("about", about);
     fd.append("portrait", portrait);
     try {
-      await axios.patch(`${REACT_APP_API_URL}/authors/${authorid}`, fd);
+      await axios.patch(
+        `${process.env.REACT_APP_API_URL}/authors/${authorid}`,
+        fd
+      );
       console.log("Updated User");
       alert("You have successfully edited your account");
     } catch (error) {
