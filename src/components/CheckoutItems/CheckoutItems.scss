@@ -25,7 +25,8 @@
     padding: 1.6rem;
     text-align: center;
     border-bottom: 1px solid $primary-color-1;
-    margin-bottom: 3rem;
+    margin: 0 auto 3rem auto;
+    max-width: 102rem;
 
     @include tablet {
       text-align: end;
