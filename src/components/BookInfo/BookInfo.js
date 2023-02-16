@@ -1,9 +1,15 @@
 import axios from "axios";
-import { useEffect } from "react";
+import { useCallback, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import "./BookInfo.scss";
 
 const BookInfo = ({ currentBook, setCurrentBook }) => {
+  const setCurrentBookCallback = useCallback(
+    (data) => {
+      setCurrentBook(data);
+    },
+    [setCurrentBook]
+  );
   const { bookid } = useParams();
   const { REACT_APP_API_URL } = process.env;
   const navigate = useNavigate();
@@ -12,15 +18,15 @@ const BookInfo = ({ currentBook, setCurrentBook }) => {
     try {
       const getBook = async () => {
         const { data } = await axios.get(
-          `${REACT_APP_API_URL}/books/${bookid}`
+          `${process.env.REACT_APP_API_URL}/books/${bookid}`
         );
-        setCurrentBook(data);
+        setCurrentBookCallback(data);
       };
       getBook();
     } catch (error) {
       console.error(error);
     }
-  }, []);
+  }, [bookid, setCurrentBookCallback]);
 
   if (!currentBook) {
     return <p>Loading...</p>;

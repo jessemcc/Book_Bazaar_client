@@ -20,7 +20,9 @@ const CheckoutPage = () => {
   useEffect(() => {
     try {
       const getCartItems = async () => {
-        const { data } = await axios.get(`${REACT_APP_API_URL}/cart`);
+        const { data } = await axios.get(
+          `${process.env.REACT_APP_API_URL}/cart`
+        );
         setCart(data);
         setIsCartLoaded(true);
       };
@@ -39,7 +41,9 @@ const CheckoutPage = () => {
   useEffect(() => {
     if (isCartLoaded && cart.length > 0) {
       axios
-        .post(`${REACT_APP_API_URL}/create-payment-intent`, { cart })
+        .post(`${process.env.REACT_APP_API_URL}/create-payment-intent`, {
+          cart,
+        })
         .then((response) => {
           setClientSecret(response.data.clientSecret);
           setIsClientSecretSet(true);
@@ -48,7 +52,7 @@ const CheckoutPage = () => {
           console.error(error);
         });
     }
-  }, [isCartLoaded]);
+  }, [isCartLoaded, cart]);
 
   const appearance = {
     theme: "stripe",
@@ -63,6 +67,7 @@ const CheckoutPage = () => {
     let currentTotal = 0;
     arr.map((item) => {
       currentTotal += item.price;
+      return null;
     });
     return currentTotal.toFixed(2);
   };
@@ -89,7 +94,7 @@ const CheckoutPage = () => {
         />
       </article>
       <article className="checkout__form-container">
-        {clientSecret && (
+        {clientSecret && isClientSecretSet && (
           <Elements options={options} stripe={stripePromise}>
             <CheckoutForm />
           </Elements>
