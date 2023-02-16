@@ -1,0 +1,67 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.shipping {
+  &__form-container {
+    max-width: 102rem;
+    margin: 0 auto;
+    border: 1px solid $primary-color-1;
+    border-radius: 0.6rem;
+    box-shadow: 0.5rem 0.5rem 0.75rem rgba(0, 0, 0, 0.2);
+    padding: 1.6rem;
+    margin-bottom: 1.6rem;
+    background-color: $secondary-color-2;
+  }
+
+  &__title {
+    text-align: center;
+    width: 100%;
+    margin: 2rem auto;
+    color: $base-color-1;
+  }
+
+  &__form {
+    @include flex(row, space-between, center, wrap);
+    max-width: 102rem;
+  }
+
+  &__label {
+    width: 100%;
+    margin-bottom: 1rem;
+
+    @include tablet {
+      width: 45%;
+    }
+  }
+
+  &__input {
+    @include size(100%, 3rem);
+    border-radius: 0.6rem;
+    outline: none;
+    border: 1px solid $primary-color-1;
+    padding-left: 1rem;
+    font-family: inherit;
+  }
+
+  &__button {
+    @include flex(initial, center, center, initial);
+    @include size(100%, 4rem);
+    background-color: $primary-color-3;
+    border-radius: 0.6rem;
+    border: 2px solid $primary-color-1;
+    box-shadow: 0 0.3rem $primary-color-1;
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: $primary-color-1;
+    margin: 1.6rem auto;
+
+    &:active {
+      box-shadow: none;
+      margin-top: 1.9rem;
+    }
+
+    @include tablet {
+      width: 30rem;
+    }
+  }
+}

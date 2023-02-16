@@ -16,6 +16,7 @@ import DeleteAccount from "./pages/DeleteAccount/DeleteAccount";
 import DeleteBookPage from "./pages/DeleteBookPage/DeleteBookPage";
 import EditBookPage from "./pages/EditBookPage/EditBookPage";
 import EditProfilePage from "./pages/EditProfilePage/EditProfilePage";
+import ShippingInfoPage from "./pages/ShippingInfoPage/ShippingInfoPage";
 import "./App.scss";
 
 function App() {
@@ -50,6 +51,7 @@ function App() {
           path="/profile/:authorid/delete/:bookid"
           element={<DeleteBookPage />}
         />
+        <Route path="/shipping" element={<ShippingInfoPage />} />
         <Route path="/profile/:authorid/edit" element={<EditProfilePage />} />
         <Route
           path="/profile/:authorid/edit/:bookid"
