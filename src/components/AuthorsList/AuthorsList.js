@@ -5,9 +5,9 @@ import { Link } from "react-router-dom";
 
 const AuthorsList = () => {
   const [authors, setAuthors] = useState([]);
-  const { REACT_APP_API_URL } = process.env;
 
   useEffect(() => {
+    const { REACT_APP_API_URL } = process.env;
     try {
       const getAuthors = async () => {
         const { data } = await axios.get(`${REACT_APP_API_URL}/authors/books`);
@@ -33,7 +33,7 @@ const AuthorsList = () => {
         <section className="authors-list__container box-container">
           <article className="authors-list__author-portrait-container">
             <img
-              src={REACT_APP_API_URL + author.portrait_path}
+              src={process.env.REACT_APP_API_URL + author.portrait_path}
               alt="Portrait of Author"
               className="authors-list__author-portrait"
             />
@@ -60,7 +60,7 @@ const AuthorsList = () => {
               className="authors-list__featured-book-link"
             >
               <img
-                src={REACT_APP_API_URL + author.books[0].cover_path}
+                src={process.env.REACT_APP_API_URL + author.books[0].cover_path}
                 alt="featured book from author"
                 className="authors-list__featured-book"
               />
