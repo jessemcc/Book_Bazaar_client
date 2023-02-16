@@ -13,18 +13,16 @@ const ProfileAuthor = ({ data }) => {
     id,
     last_name,
     password,
-    portrait,
     portrait_path,
     postal_code,
     province,
   } = data[0];
-  const { REACT_APP_API_URL } = process.env;
 
   return (
     <section className="profile-author" key={id}>
       <article className="profile-author__container">
         <img
-          src={REACT_APP_API_URL + portrait_path}
+          src={process.env.REACT_APP_API_URL + portrait_path}
           alt="portrait of author"
           className="profile-author__portrait"
         />

@@ -22,7 +22,7 @@ const PageHeader = ({ isLoggedIn, setIsLoggedIn }) => {
       setAuthorId(decodedToken.id);
       setIsLoggedIn(true);
     }
-  }, [isLoggedIn]);
+  }, [isLoggedIn, jwtToken, setIsLoggedIn]);
 
   return (
     <section className="header">

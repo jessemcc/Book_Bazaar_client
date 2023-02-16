@@ -22,7 +22,7 @@ const ProfilePage = () => {
     } catch (error) {
       console.error(error);
     }
-  }, [authorid]);
+  }, [authorid, currentAuthor]);
 
   useEffect(() => {
     try {
@@ -36,7 +36,7 @@ const ProfilePage = () => {
     } catch (error) {
       console.error(error);
     }
-  }, [authorid]);
+  }, [authorid, currentAuthorBooks]);
 
   if (!currentAuthor || !currentAuthorBooks) {
     return <p>Loading...</p>;

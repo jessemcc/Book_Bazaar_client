@@ -12,7 +12,6 @@ const EditBookPage = () => {
   const [stock, setStock] = useState("");
   const [pageNumbers, setPageNumbers] = useState("");
   const [cover, setCover] = useState(null);
-  const { REACT_APP_API_URL } = process.env;
   const { authorid, bookid } = useParams();
   const navigate = useNavigate();
   document.title = "Book Bazaar - Edit Book";
@@ -29,7 +28,7 @@ const EditBookPage = () => {
     try {
       const getBookInfo = async () => {
         const { data } = await axios.get(
-          `${REACT_APP_API_URL}/books/${bookid}`
+          `${process.env.REACT_APP_API_URL}/books/${bookid}`
         );
         setBookName(data[0].book_name);
         setDescription(data[0].description);
@@ -43,7 +42,7 @@ const EditBookPage = () => {
     } catch (error) {
       console.error(error);
     }
-  }, []);
+  }, [bookid]);
 
   const updateBook = async () => {
     const fd = new FormData();
@@ -58,7 +57,7 @@ const EditBookPage = () => {
     fd.append("cover", cover);
     try {
       await axios.patch(
-        `${REACT_APP_API_URL}/authors/${authorid}/${bookid}`,
+        `${process.env.REACT_APP_API_URL}/authors/${authorid}/${bookid}`,
         fd
       );
       console.log("Book has successfully been uploaded");
