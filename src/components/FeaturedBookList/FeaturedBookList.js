@@ -5,12 +5,13 @@ import axios from "axios";
 
 const FeaturedBookList = ({ isLoggedIn }) => {
   const [bookList, setBookList] = useState([]);
-  const { REACT_APP_API_URL } = process.env;
 
   useEffect(() => {
     try {
       const getFeatured = async () => {
-        const { data } = await axios.get(`${REACT_APP_API_URL}/books`);
+        const { data } = await axios.get(
+          `${process.env.REACT_APP_API_URL}/books`
+        );
         setBookList(data);
       };
       getFeatured();

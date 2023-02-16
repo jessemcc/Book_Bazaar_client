@@ -5,12 +5,13 @@ import { useEffect, useState } from "react";
 
 const Featured = () => {
   const [featured, setFeatured] = useState([]);
-  const { REACT_APP_API_URL } = process.env;
 
   useEffect(() => {
     try {
       const getFeatured = async () => {
-        const { data } = await axios.get(`${REACT_APP_API_URL}/books`);
+        const { data } = await axios.get(
+          `${process.env.REACT_APP_API_URL}/books`
+        );
         setFeatured(data);
       };
       getFeatured();
@@ -36,7 +37,7 @@ const Featured = () => {
           <h3 className="featured-books__featured-title">{book.book_name}</h3>
           <div className="featured-books__book-cover-container">
             <img
-              src={REACT_APP_API_URL + book.cover_path}
+              src={process.env.REACT_APP_API_URL + book.cover_path}
               alt="book cover"
               className="featured-books__book-cover"
             />

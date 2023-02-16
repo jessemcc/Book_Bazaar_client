@@ -4,13 +4,12 @@ import { Link } from "react-router-dom";
 import "./SuccessPage.scss";
 
 const SuccessPage = () => {
-  const { REACT_APP_API_URL } = process.env;
   document.title = "Book Bazaar - Success";
 
   useEffect(() => {
     try {
       const deleteCart = async () => {
-        await axios.delete(`${REACT_APP_API_URL}/delete`);
+        await axios.delete(`${process.env.REACT_APP_API_URL}/delete`);
       };
       deleteCart();
     } catch (error) {
