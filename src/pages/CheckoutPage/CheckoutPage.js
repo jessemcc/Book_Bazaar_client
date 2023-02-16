@@ -13,8 +13,7 @@ const CheckoutPage = () => {
   const [deletedId, setDeletedId] = useState(null);
   const [clientSecret, setClientSecret] = useState("");
   const [isClientSecretSet, setIsClientSecretSet] = useState(false);
-  const { REACT_APP_API_URL, REACT_APP_STRIPE_KEY } = process.env;
-  const stripePromise = loadStripe(`${REACT_APP_STRIPE_KEY}`);
+  const stripePromise = loadStripe(`${process.env.REACT_APP_STRIPE_KEY}`);
 
   // GET ALL CART ITEMS =======================================================
   useEffect(() => {
@@ -75,7 +74,7 @@ const CheckoutPage = () => {
 
   // DELETE CART ITEM ============================================================
   const handleDelete = async (id) => {
-    await axios.delete(`${REACT_APP_API_URL}/cart`, {
+    await axios.delete(`${process.env.REACT_APP_API_URL}/cart`, {
       data: { id },
     });
     setDeletedId(id);
