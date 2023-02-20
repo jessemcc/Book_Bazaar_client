@@ -57,7 +57,7 @@ export default function CheckoutForm() {
     const { error } = await stripe.confirmPayment({
       elements,
       confirmParams: {
-        return_url: `http://localhost:3000/shipping`,
+        return_url: `${process.env.REACT_APP_SHIPPING_URL}/shipping`,
       },
     });
     if (error.type === "card_error" || error.type === "validation_error") {
