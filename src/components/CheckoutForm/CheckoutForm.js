@@ -6,10 +6,12 @@ import {
   useStripe,
   useElements,
 } from "@stripe/react-stripe-js";
+import { useNavigate } from "react-router-dom";
 
 export default function CheckoutForm() {
   const stripe = useStripe();
   const elements = useElements();
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -31,6 +33,7 @@ export default function CheckoutForm() {
       switch (paymentIntent.status) {
         case "succeeded":
           setMessage("Payment succeeded!");
+          navigate("/shipping");
           break;
         case "processing":
           setMessage("Your payment is processing.");
@@ -43,7 +46,7 @@ export default function CheckoutForm() {
           break;
       }
     });
-  }, [stripe]);
+  }, [stripe, navigate]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
