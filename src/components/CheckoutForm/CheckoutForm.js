@@ -11,7 +11,7 @@ import { useNavigate } from "react-router-dom";
 export default function CheckoutForm() {
   const stripe = useStripe();
   const elements = useElements();
-  const navigate = useNavigate();
+  const navigation = useNavigate();
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -33,7 +33,6 @@ export default function CheckoutForm() {
       switch (paymentIntent.status) {
         case "succeeded":
           setMessage("Payment succeeded!");
-          navigate("/shipping");
           break;
         case "processing":
           setMessage("Your payment is processing.");
@@ -46,7 +45,7 @@ export default function CheckoutForm() {
           break;
       }
     });
-  }, [stripe, navigate]);
+  }, [stripe]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -59,9 +58,7 @@ export default function CheckoutForm() {
     console.log(`${process.env.REACT_APP_API_URL}`);
     const { error } = await stripe.confirmPayment({
       elements,
-      confirmParams: {
-        return_url: `${process.env.REACT_APP_SHIPPING_URL}/shipping`,
-      },
+      confirmParams: navigation(`/shipping`),
     });
     if (error.type === "card_error" || error.type === "validation_error") {
       setMessage(error.message);
