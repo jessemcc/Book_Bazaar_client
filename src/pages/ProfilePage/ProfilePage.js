@@ -32,7 +32,6 @@ const ProfilePage = () => {
         );
         setCurrentAuthorBooks(data);
       };
-      console.log(authorid, currentAuthorBooks);
       getAuthorBooks();
     } catch (error) {
       console.error(error);
