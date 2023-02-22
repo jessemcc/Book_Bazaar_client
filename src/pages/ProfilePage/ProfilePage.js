@@ -22,7 +22,7 @@ const ProfilePage = () => {
     } catch (error) {
       console.error(error);
     }
-  }, [authorid, currentAuthor]);
+  }, [authorid]);
 
   useEffect(() => {
     try {
@@ -32,17 +32,23 @@ const ProfilePage = () => {
         );
         setCurrentAuthorBooks(data);
       };
+      console.log(authorid, currentAuthorBooks);
       getAuthorBooks();
     } catch (error) {
       console.error(error);
     }
-  }, [authorid, currentAuthorBooks]);
+  }, [authorid]);
+
+  useEffect(() => {
+    if (currentAuthor && currentAuthorBooks) {
+      document.title = `Book Bazaar - ${currentAuthor[0].first_name} ${currentAuthor[0].last_name}`;
+    }
+  }, [currentAuthor, currentAuthorBooks]);
 
   if (!currentAuthor || !currentAuthorBooks) {
     return <p>Loading...</p>;
   }
 
-  document.title = `Book Bazaar - ${currentAuthor[0].first_name} ${currentAuthor[0].last_name}`;
   return (
     <section className="profile page-container">
       <article className="profile__container">
